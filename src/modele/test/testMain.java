@@ -33,6 +33,8 @@ class testMain {
     @Test
     void test() {
         fail("Not yet implemented");
+        System.out.print("test");
     }
-
+     
+  
 }
