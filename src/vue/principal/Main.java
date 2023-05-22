@@ -4,13 +4,17 @@
  */
 package vue.principal;
 
-/** TODO comment class responsibility (SRP)
+/**
+ * TODO comment class responsibility (SRP)
+ * 
  * @author benjamin.nicol
  *
  */
 public class Main {
 
-    /** TODO comment method role
+    /**
+     * TODO comment method role
+     * 
      * @param args
      */
     public static void main(String[] args) {
