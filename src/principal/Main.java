@@ -1,35 +1,53 @@
+/* Programme principal de l'application calcul de la réduction 05/23 */
 package principal;
-	
+
+import java.io.IOException;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 
-
-/** TODO comment class responsibility (SRP)
- * @author Jodie Monterde
- *
+/**
+ * Classe principale de l'application calcul de la réduction La fenêtre
+ * principale est affichée via une vue décrite dans un fichier fxml
+ * 
+ * @author C. Servières
+ * @version 1.0
  */
 public class Main extends Application {
-	/* non javadoc - @see javafx.application.Application#start(javafx.stage.Stage) */
+
 	@Override
 	public void start(Stage primaryStage) {
+
+		/*
+		 * création d'un chargeur de code FXML et chargement de la vue de l'application
+		 */
+		FXMLLoader chargeurFXML = new FXMLLoader();
+		chargeurFXML.setLocation(getClass().getResource("VueJeu.fxml"));
+		Parent racine;
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,600,700);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			racine = chargeurFXML.load();
+			Scene scene = new Scene(racine);
+			scene.getRoot().requestFocus();
+
+			// on définit les caractéristiques de la fenêtre et lui associe la scène
+			primaryStage.setTitle("Prix à payer avec une réduction");
+			primaryStage.setHeight(400);
+			primaryStage.setWidth(600);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			/** */
-		} catch(Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	/** TODO comment method role
-	 * @param args
+
+	/**
+	 * Programme principal
+	 * 
+	 * @param args non utilisé
 	 */
 	public static void main(String[] args) {
-		launch(args);
+		launch(args); // appelera la méthode start
 	}
 }
