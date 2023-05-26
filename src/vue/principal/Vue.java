@@ -10,4 +10,12 @@ package vue.principal;
  */
 public class Vue {
 
+    /** TODO comment intial state
+     * 
+     */
+    public Vue() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
 }

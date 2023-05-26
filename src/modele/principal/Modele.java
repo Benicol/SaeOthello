@@ -10,12 +10,13 @@ package modele.principal;
  */
 public class Modele {
 
-    /** TODO comment method role
-     * @param args
+    /** TODO comment intial state
+     * 
      */
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        System.out.println("oui");
+    public Modele() {
+       // TODO Auto-generated constructor stub
     }
+
+
 
 }
