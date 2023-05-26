@@ -8,7 +8,7 @@ package modele.principal;
  * @author benjamin.nicol
  *
  */
-public class Main {
+public class Modele {
 
     /** TODO comment method role
      * @param args

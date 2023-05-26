@@ -1,5 +1,5 @@
 /*
- * TestMain.java                                      26 mai 2023
+ * TestControleur.java                                      26 mai 2023
  * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
  */
 package controleur.test;
@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * @author jodie.monterde
  *
  */
-class TestMain {
+class TestControleur {
 
     /** TODO comment method role
      * @throws java.lang.Exception
