@@ -15,16 +15,12 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Assets/Group%201.png" />
-                     </image>
-                  </ImageView>
+                  <Button fx:id="menu" mnemonicParsing="false" text="Menu" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" style="-fx-text-fill: #FFFFFF;">
                <children>
-                  <TextField alignment="BASELINE_CENTER" style="-fx-background-color: #75BB99; -fx-text-fill: #FFFFFF;" text="Joueur 1">
+                  <TextField fx:id="nomJ1" alignment="BASELINE_CENTER" style="-fx-background-color: #75BB99; -fx-text-fill: #FFFFFF;" text="Joueur 1">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
@@ -38,7 +34,7 @@
                         <Insets bottom="-4.0" />
                      </padding>
                   </TextField>
-                  <TextField alignment="TOP_CENTER" style="-fx-background-color: #75BB99; -fx-text-fill: #FFFFFF;" text="8">
+                  <TextField fx:id="scoreJ1" alignment="TOP_CENTER" style="-fx-background-color: #75BB99; -fx-text-fill: #FFFFFF;" text="8">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
@@ -53,12 +49,12 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Circle radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="couleurJoueurActif" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0">
                <children>
-                  <TextField alignment="CENTER" style="-fx-background-color: #75BB99;" text="Joueur 2">
+                  <TextField fx:id="nomJ2" alignment="CENTER" style="-fx-background-color: #75BB99;" text="Joueur 2">
                      <VBox.margin>
                         <Insets right="10.0" />
                      </VBox.margin>
@@ -69,7 +65,7 @@
                         <Insets bottom="-4.0" />
                      </padding>
                   </TextField>
-                  <TextField alignment="CENTER" style="-fx-background-color: #75BB99;" text="3">
+                  <TextField fx:id="scoreJ2" alignment="CENTER" style="-fx-background-color: #75BB99;" text="3">
                      <VBox.margin>
                         <Insets right="10.0" />
                      </VBox.margin>
@@ -84,7 +80,7 @@
             </VBox>
          </children>
       </HBox>
-      <GridPane gridLinesVisible="true" style="-fx-background-color: #009E6D;">
+      <GridPane fx:id="grille" gridLinesVisible="true" style="-fx-background-color: #009E6D;">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -111,7 +107,7 @@
       </GridPane>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #75BB99; -fx-background-radius: 50px;" text="Passer son tour" textAlignment="CENTER">
+            <Button fx:id="passerTour" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#passerSonTour" style="-fx-background-color: #75BB99; -fx-background-radius: 50px;" text="Passer son tour" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

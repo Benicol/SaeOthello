@@ -1,4 +1,4 @@
-package vue.principal;
+package principal;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;

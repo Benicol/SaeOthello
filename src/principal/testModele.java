@@ -1,8 +1,8 @@
 /*
- * TestControleur.java                                      26 mai 2023
+ * TestControleur.java                                      17 mai 2023
  * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
  */
-package controleur.test;
+package principal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,10 +11,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** TODO comment class responsibility (SRP)
- * @author jodie.monterde
+ * @author benjamin.nicol
  *
  */
-class TestControleur {
+class TestMain {
 
     /** TODO comment method role
      * @throws java.lang.Exception
@@ -33,6 +33,8 @@ class TestControleur {
     @Test
     void test() {
         fail("Not yet implemented");
+        System.out.print("test");
     }
-
+     
+  
 }
