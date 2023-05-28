@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:controller="application.Controleur" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.Controleur">
    <children>
       <HBox prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: #75BB99;">
          <children>
@@ -107,7 +107,7 @@
       </GridPane>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Button fx:id="passerTour" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#passerSonTour" style="-fx-background-color: #75BB99; -fx-background-radius: 50px;" text="Passer son tour" textAlignment="CENTER">
+            <Button fx:id="passerTour" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #75BB99; -fx-background-radius: 50px;" text="Passer son tour" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

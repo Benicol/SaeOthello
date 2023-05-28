@@ -4,19 +4,20 @@
  */
 package principal;
 
-/** TODO comment class responsibility (SRP)
+/**
+ * TODO comment class responsibility (SRP)
+ * 
  * @author benjamin.nicol
  *
  */
 public class Modele {
 
-    /** TODO comment intial state
+    /**
+     * TODO comment intial state
      * 
      */
     public Modele() {
-       // TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stub
     }
-
-
 
 }

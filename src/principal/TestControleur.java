@@ -10,20 +10,26 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/** TODO comment class responsibility (SRP)
+/**
+ * TODO comment class responsibility (SRP)
+ * 
  * @author jodie.monterde
  *
  */
 class TestControleur {
 
-    /** TODO comment method role
+    /**
+     * TODO comment method role
+     * 
      * @throws java.lang.Exception
      */
     @BeforeEach
     void setUp() throws Exception {
     }
 
-    /** TODO comment method role
+    /**
+     * TODO comment method role
+     * 
      * @throws java.lang.Exception
      */
     @AfterEach

@@ -4,12 +4,41 @@
  */
 package principal;
 
-import principal.Modele;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Circle;
 
-/** TODO comment class responsibility (SRP)
+/**
+ * TODO comment class responsibility (SRP)
+ * 
  * @author jodie.monterde
  *
  */
 public class Controleur {
-    
+    @FXML
+    private TextField nomJ1;
+
+    @FXML
+    private TextField scoreJ1;
+
+    @FXML
+    private TextField nomJ2;
+
+    @FXML
+    private TextField scoreJ2;
+
+    @FXML
+    private Button menu;
+
+    @FXML
+    private GridPane grille;
+
+    @FXML
+    private Button passerTour;
+
+    @FXML
+    private Circle couleurJoueurActif;
+
 }

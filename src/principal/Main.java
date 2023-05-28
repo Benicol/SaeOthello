@@ -17,37 +17,37 @@ import javafx.scene.Scene;
  */
 public class Main extends Application {
 
-	@Override
-	public void start(Stage primaryStage) {
+    @Override
+    public void start(Stage primaryStage) {
 
-		/*
-		 * création d'un chargeur de code FXML et chargement de la vue de l'application
-		 */
-		FXMLLoader chargeurFXML = new FXMLLoader();
-		chargeurFXML.setLocation(getClass().getResource("VueJeu.fxml"));
-		Parent racine;
-		try {
-			racine = chargeurFXML.load();
-			Scene scene = new Scene(racine);
-			scene.getRoot().requestFocus();
+        /*
+         * création d'un chargeur de code FXML et chargement de la vue de l'application
+         */
+        FXMLLoader chargeurFXML = new FXMLLoader();
+        chargeurFXML.setLocation(getClass().getResource("VueJeu.fxml"));
+        Parent racine;
+        try {
+            racine = chargeurFXML.load();
+            Scene scene = new Scene(racine);
+            scene.getRoot().requestFocus();
 
-			// on définit les caractéristiques de la fenêtre et lui associe la scène
-			primaryStage.setTitle("Prix à payer avec une réduction");
-			primaryStage.setHeight(400);
-			primaryStage.setWidth(600);
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+            // on définit les caractéristiques de la fenêtre et lui associe la scène
+            primaryStage.setTitle("Othello");
+            primaryStage.setHeight(700);
+            primaryStage.setWidth(600);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	/**
-	 * Programme principal
-	 * 
-	 * @param args non utilisé
-	 */
-	public static void main(String[] args) {
-		launch(args); // appelera la méthode start
-	}
+    /**
+     * Programme principal
+     * 
+     * @param args non utilisé
+     */
+    public static void main(String[] args) {
+        launch(args); // appelera la méthode start
+    }
 }
