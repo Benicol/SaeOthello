@@ -7,6 +7,7 @@ package principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -45,13 +46,19 @@ public class Controleur {
     
     @FXML
     void testing(ActionEvent event) {
-        Circle test = new Circle(0,0,18);
-        GridPane.setHalignment(test, HPos.CENTER);
-        grille.add(test, 3, 4);     
     }
     
     @FXML
-    void testing2(ActionEvent event) {
-        System.out.println(event.getSource().toString());
+    void nodePressed(ActionEvent event) {
+        Button btn = (Button) event.getSource();
+        btn.setDisable(true);
+        Integer x = GridPane.getColumnIndex((Node) event.getSource());
+        x = x == null ? 0 : x;
+        Integer y = GridPane.getRowIndex((Node) event.getSource());
+        y = y == null ? 0 : y;
+        System.out.println("new circle at : [x=" + x + "; y=" + y + "]");
+        Circle cercle = new Circle(0,0,18);
+        GridPane.setHalignment(cercle, HPos.CENTER);
+        grille.add(cercle, x, y); 
     }
 }
