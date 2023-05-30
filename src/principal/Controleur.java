@@ -4,7 +4,9 @@
  */
 package principal;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.HPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -40,5 +42,16 @@ public class Controleur {
 
     @FXML
     private Circle couleurJoueurActif;
-
+    
+    @FXML
+    void testing(ActionEvent event) {
+        Circle test = new Circle(0,0,18);
+        GridPane.setHalignment(test, HPos.CENTER);
+        grille.add(test, 3, 4);     
+    }
+    
+    @FXML
+    void testing2(ActionEvent event) {
+        System.out.println(event.getSource().toString());
+    }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
@@ -11,16 +12,16 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <VBox.margin>
             <Insets />
          </VBox.margin>
          <children>
-            <TextField alignment="CENTER" style="-fx-background-color: #75BB99; -fx-text-fill: #FFFFFF; -fx-font-family: ;" text="OTHELLO">
+            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="4.0" text="OTHELLO">
                <font>
                   <Font name="System Bold" size="96.0" />
                </font>
-            </TextField>
+            </Text>
          </children>
       </VBox>
       <VBox alignment="CENTER" prefHeight="130.0" prefWidth="100.0">
