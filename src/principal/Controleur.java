@@ -20,6 +20,9 @@ import javafx.scene.shape.Circle;
  *
  */
 public class Controleur {
+    
+    private Circle[][] matriceCercles = new Circle[8][8];
+    
     @FXML
     private TextField nomJ1;
 
@@ -56,9 +59,16 @@ public class Controleur {
         x = x == null ? 0 : x;
         Integer y = GridPane.getRowIndex((Node) event.getSource());
         y = y == null ? 0 : y;
-        System.out.println("new circle at : [x=" + x + "; y=" + y + "]");
         Circle cercle = new Circle(0,0,18);
         GridPane.setHalignment(cercle, HPos.CENTER);
+        matriceCercles[x][y] = cercle;
         grille.add(cercle, x, y); 
+    }
+    
+    private Circle cercleCorrespondant(Circle rechercher) {
+        Circle bonCercle;
+        
+        bonCercle = new Circle(); //BOUCHON
+        return bonCercle;
     }
 }
