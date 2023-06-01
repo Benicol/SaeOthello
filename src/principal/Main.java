@@ -12,8 +12,7 @@ import javafx.scene.Scene;
  * Classe principale de l'application calcul de la réduction La fenêtre
  * principale est affichée via une vue décrite dans un fichier fxml
  * 
- * @author C. Servières
- * @version 1.0
+ * @author Groupe 32
  */
 public class Main extends Application {
 
