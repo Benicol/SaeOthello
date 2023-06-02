@@ -86,7 +86,7 @@ public class Controleur {
     
     @FXML
     void testing(ActionEvent event) {
-        //plateauJeu.test();
+        plateauJeu.test();
     }
     
     @FXML
