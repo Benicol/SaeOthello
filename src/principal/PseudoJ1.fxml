@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -7,14 +8,14 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="823.0" text="Joueur 1" textAlignment="CENTER">
+      <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="Votre pseudo">
          <font>
-            <Font name="Agency FB" size="90.0" />
+            <Font name="System Bold" size="96.0" />
          </font>
-      </Label>
+      </Text>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="442.0" text=" Entrez votre pseudo">
+            <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="442.0" promptText="Joueur 1" style="-fx-background-color: #EEEEEE; -fx-background-radius: 8px;">
                <font>
                   <Font name="Agency FB" size="20.0" />
                </font>
@@ -26,7 +27,7 @@
 		    <Font name="System Bold" size="20.0" />
          </font>
 	     <effect>
-		    <DropShadow />
+            <DropShadow />
 	     </effect>
       </Button>
    </children>

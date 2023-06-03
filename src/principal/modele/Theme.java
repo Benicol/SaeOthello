@@ -9,7 +9,7 @@ package principal.modele;
  * @author benji
  *
  */
-public class SetCouleur {
+public class Theme {
     
     private String couleurJ1;
     
@@ -21,7 +21,7 @@ public class SetCouleur {
      * @param couleurJ1
      * @param couleurJ2
      */
-    public SetCouleur(String couleurJ1, String couleurJ2) {
+    public Theme(String couleurJ1, String couleurJ2) {
         this.couleurJ1 = couleurJ1;
         this.couleurJ2 = couleurJ2;
         this.couleurActive = couleurJ2;

@@ -34,13 +34,13 @@ public class Joueur {
     }
     
     /** @param valeur */
-    public void incrementer(int valeur) {
-        this.score += valeur;
+    public void incrementer() {
+        this.score++;
     }
     
     /** @param valeur */
-    public void decrementer(int valeur) {
-        this.score -= valeur;
+    public void decrementer() {
+        this.score--;
     }
     
     
