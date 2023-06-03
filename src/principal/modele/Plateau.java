@@ -194,25 +194,25 @@ public class Plateau {
     private Stack<int[]> jetonsSurCheminRecursif(int[] coord, int[] offSet, boolean couleurCherche) {
         int[] newCoord = {coord[0] + offSet[0], coord[1] + offSet[1]};
         int[] errCoord = {-1};
-        Stack<int[]> chemain = new Stack();
-        Stack<int[]> chemainErr = new Stack();
-        chemainErr.add(errCoord);
+        Stack<int[]> chemin = new Stack();
+        Stack<int[]> cheminErr = new Stack();
+        cheminErr.add(errCoord);
         if (!isCoordValide(newCoord) || 
             !matrice[newCoord[0]][newCoord[1]].isAfficher()) {
-            return chemainErr;
+            return cheminErr;
         } else if (matrice[newCoord[0]][newCoord[1]].isCouleurJ1() == 
                                                                couleurCherche) {
-            chemain.add(coord);
+            chemin.add(coord);
             Stack<int[]> tmp = jetonsSurCheminRecursif(newCoord, offSet, couleurCherche);
             if (tmp.peek()[0] == -1) {
-                return chemainErr;
+                return cheminErr;
             }
-            chemain.addAll(tmp);
-            return chemain;
+            chemin.addAll(tmp);
+            return chemin;
             
         } else {
-            chemain.add(coord);
-            return chemain;
+            chemin.add(coord);
+            return chemin;
         }
     }
 
