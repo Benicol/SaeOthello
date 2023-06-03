@@ -14,7 +14,7 @@ import javafx.scene.paint.Paint;
  */
 public class Plateau {
     
-    private SetCouleur couleurs;
+    private Theme couleurs;
     
     /* taille de la matrice qui représente le plateau de jeu */
     private final int TAILLE = 8;
@@ -26,7 +26,7 @@ public class Plateau {
      * @param couleurs 
      * 
      */
-    public Plateau (SetCouleur couleurs) {
+    public Plateau (Theme couleurs) {
         this.couleurs = couleurs;
         this.matrice = new Jeton[TAILLE][TAILLE];
         for (int x = 0; x < TAILLE; x++) {

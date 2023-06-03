@@ -5,7 +5,7 @@
 package principal;
 
 import principal.modele.Plateau;
-import principal.modele.SetCouleur;
+import principal.modele.Theme;
 import principal.modele.Joueur;
 
 import java.util.List;
@@ -29,7 +29,7 @@ import javafx.scene.shape.Circle;
  */
 public class Controleur {
     
-    private SetCouleur couleurs = new SetCouleur("#FFFFFF", "#000000");
+    private Theme couleurs = new Theme("#FFFFFF", "#000000");
     
     private Plateau plateauJeu = new Plateau(couleurs);
     

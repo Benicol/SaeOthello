@@ -9,14 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import javafx.scene.paint.Paint;
-import principal.modele.SetCouleur;
+import principal.modele.Theme;
 
 /** TODO comment class responsibility (SRP)
  * @author benji
  *
  */
 class TestSetCouleur {
-    SetCouleur test = new SetCouleur("#FFFFFF", "#000000");
+    Theme test = new Theme("#FFFFFF", "#000000");
     
 
     /**
