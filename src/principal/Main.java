@@ -34,6 +34,7 @@ public class Main extends Application {
             primaryStage.setTitle("Othello");
             primaryStage.setHeight(700);
             primaryStage.setWidth(600);
+            EchangeurDeVue.setSceneCourante(scene);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

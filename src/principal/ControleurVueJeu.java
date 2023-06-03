@@ -1,5 +1,5 @@
 /*
- * Controleur.java                                      26 2023
+ * ControleurVueJeu.java                                      26 2023
  * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
  */
 package principal;
@@ -27,7 +27,7 @@ import javafx.scene.shape.Circle;
  * @author Groupe 32
  *
  */
-public class Controleur {
+public class ControleurVueJeu {
     
     private Theme couleurs = new Theme("#FFFFFF", "#000000");
     
@@ -105,6 +105,7 @@ public class Controleur {
     @FXML
     void menuTest(ActionEvent event) {
         System.out.println("boutonMenuAppuyer");
+        EchangeurDeVue.echangerAvec(0);
     }
     
     void registerBouttons() {
