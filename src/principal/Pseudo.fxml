@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurPseudo">
+   <children>
+      <Text fx:id="labelPseudo" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="Votre pseudo">
+         <font>
+            <Font name="System Bold" size="96.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="entrer" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" onAction="#validerCliquer" prefHeight="65.0" prefWidth="442.0" promptText="Joueur 1" style="-fx-background-color: #EEEEEE; -fx-background-radius: 8px;">
+               <font>
+                  <Font name="Agency FB" size="20.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#validerCliquer" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" text="VALIDER" textAlignment="CENTER">
+         <font>
+		    <Font name="System Bold" size="20.0" />
+         </font>
+	     <effect>
+            <DropShadow />
+	     </effect>
+      </Button>
+   </children>
+</VBox>

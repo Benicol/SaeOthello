@@ -13,11 +13,20 @@ package principal;
  */
 public class EnsembleDesVues {
 
-    /** Code de la vue principale */
+    /** Code de la vue menu principale */
     public static final int VUE_MENU_PRINCIPAL = 0;
 
-    /** Code de la vue de l'addition */
+    /** Code de la vue de jeu */
     public static final int VUE_JEU = 1;
+    
+    /** Code de la vue du pseudo */
+    public static final int VUE_PSEUDO = 2;
+    
+    /** Code de la vue de egalite */
+    public static final int VUE_EGALITE = 3;
+    
+    /** Code de la vue de victoire */
+    public static final int VUE_VICTOIRE = 4;
 
     /**
      * Tableau contenant les noms des fichiers fxml des différentes vues 75 de
@@ -25,7 +34,10 @@ public class EnsembleDesVues {
      * et le code de la vue défini en tant que constante
      */
     private static final String[] NOM_DES_VUES = { "InterfaceMenuPrincipal.fxml", 
-                                                   "VueJeu.fxml"};
+                                                   "VueJeu.fxml", 
+                                                   "Pseudo.fxml", 
+                                                   "Egalite.fxml", 
+                                                   "Victoire.fxml"};
 
     /**
      * Renvoie le nom du fichier fxml contenant la vue dont le code est donné en

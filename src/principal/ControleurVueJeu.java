@@ -7,6 +7,7 @@ package principal;
 import principal.modele.Plateau;
 import principal.modele.Theme;
 import principal.modele.Joueur;
+import principal.modele.Modele;
 
 import java.util.List;
 
@@ -29,13 +30,13 @@ import javafx.scene.shape.Circle;
  */
 public class ControleurVueJeu {
     
-    private Theme couleurs = new Theme("#FFFFFF", "#000000");
+    private Theme couleurs = Modele.getPalette();
     
     private Plateau plateauJeu = new Plateau(couleurs);
     
-    private Joueur joueur1 = new Joueur("chubakah");
+    private Joueur joueur1 = new Joueur(Modele.getPseudoJ1());
     
-    private Joueur joueur2 = new Joueur("Jedi");
+    private Joueur joueur2 = new Joueur(Modele.getPseudoJ2());
     
     private Circle[][] cercles = new Circle[8][8];
     
@@ -105,7 +106,8 @@ public class ControleurVueJeu {
     @FXML
     void menuTest(ActionEvent event) {
         System.out.println("boutonMenuAppuyer");
-        EchangeurDeVue.echangerAvec(0);
+        EchangeurDeVue.echangerAvec(0, 700, 600);
+        EchangeurDeVue.supprimerCache(1);
     }
     
     void registerBouttons() {
@@ -235,7 +237,14 @@ public class ControleurVueJeu {
     private void testFin() {
         if (plateauJeu.chercherPlacementsPossible().length == 0 
             && joueur1.getScore() + joueur2.getScore() > 4) {
-            System.out.println("fin");
+            EchangeurDeVue.supprimerCache(1);
+            int[] tmp = {joueur1.getScore(), joueur2.getScore()};
+            Modele.setScores(tmp);
+            if (joueur1.getScore() == joueur2.getScore()) {
+                EchangeurDeVue.echangerAvec(3, 525, 900);
+            } else {
+                EchangeurDeVue.echangerAvec(3, 525, 900);
+            }
         }
     }
  

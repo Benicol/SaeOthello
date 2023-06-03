@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
 /**
@@ -38,7 +39,7 @@ public class EchangeurDeVue {
      * vue)
      */
     private static Map<Integer, Parent> cache;
-
+    
     // création de la table cache
     static {
         cache = new HashMap<>();
@@ -46,6 +47,8 @@ public class EchangeurDeVue {
 
     /** Scene courante, ou scène qui est associée à la fenêtre principale */
     private static Scene sceneCourante;
+    
+    private static Stage primaryStage;
 
     /**
      * Affecte à la sceneCourante la scène créée dans la méthode start, donc celle
@@ -56,14 +59,27 @@ public class EchangeurDeVue {
     public static void setSceneCourante(Scene nouvelleScene) {
         sceneCourante = nouvelleScene;
     }
-
+    
+    /**
+     * Affecte à la sceneCourante la scène créée dans la méthode start, donc celle
+     * associée à la fenêtre principale
+     * @param stage 
+     */
+    public static void setStage(Stage stage) {
+        primaryStage = stage;
+    }
+    
     /**
      * Modifie la vue associée à la scène courante, pour qu'elle devienne celle dont
      * le code est donné en argument La scène courante doit avoir été initialisée
      * 
      * @param codeVue code de la vue à placer sur la scène courante
+     * @param height 
+     * @param width 
      */
-    public static void echangerAvec(int codeVue) {
+    public static void echangerAvec(int codeVue, int height, int width) {
+        primaryStage.setHeight(height);
+        primaryStage.setWidth(width);
         if (sceneCourante == null) {
 
             // pas de scène courante : impossible de modifier sa vue
@@ -99,6 +115,15 @@ public class EchangeurDeVue {
 
             // problème lors de l'accès au fichier décrivant la vue
             System.out.println("Echec du chargement de la vue de code " + codeVue);
+        }
+    }
+    
+    /**
+     * @param codeVue code de la vue à placer sur la scène courante
+     */
+    public static void supprimerCache(int codeVue) {
+        if (cache.containsKey(codeVue)) {
+            cache.remove(codeVue);
         }
     }
 }

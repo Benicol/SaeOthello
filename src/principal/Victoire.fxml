@@ -9,17 +9,22 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="901.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="EGALITÉ !">
+      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="FELICITATIONS !">
          <font>
             <Font name="System Bold" size="64.0" />
          </font>
       </Text>
-      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Pas de vainqueur pour cette fois...">
+      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="[insérer pseudo]">
          <font>
-            <Font name="System Bold" size="48.0" />
+            <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="[score J1] à [score J2]">
+      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="A GAGNÉ ">
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font>
+      </Text>
+      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="[score gagnant] à [score perdant]">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -28,11 +33,11 @@
          <children>
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
                <font>
-      		    <Font name="System Bold" size="20.0" />
+                <Font name="System Bold" size="20.0" />
                </font>
-      	     <effect>
+             <effect>
                   <DropShadow />
-      	     </effect>
+             </effect>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -66,9 +71,6 @@
                </graphic>
             </Button>
          </children>
-         <VBox.margin>
-            <Insets top="50.0" />
-         </VBox.margin>
       </HBox>
    </children>
    <padding>
