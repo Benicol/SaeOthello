@@ -12,12 +12,12 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+      <VBox alignment="CENTER" prefHeight="207.0" prefWidth="600.0">
          <VBox.margin>
             <Insets />
          </VBox.margin>
          <children>
-            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="4.0" text="OTHELLO">
+            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="4.0" text="OPTIONS">
                <font>
                   <Font name="System Bold" size="96.0" />
                </font>
@@ -34,7 +34,7 @@
                   <DropShadow />
                </effect>
                <graphic>
-                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="MODE 2 JOUEURS">
+                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="REGLER LA DIFFICULTE">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -56,7 +56,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
                <graphic>
-                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="MODE 1 JOUEUR">
+                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="CHANGER LE THEME">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -75,7 +75,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
                <graphic>
-                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="CHARGER UNE PARTIE">
+                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="STATISTIQUES">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -94,7 +94,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
                <graphic>
-                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="OPTIONS">
+                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="MENU PRINCIPAL">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -103,28 +103,6 @@
             </Button>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="130.0" prefWidth="100.0">
-         <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-background-radius: 50px; -fx-text-fill: #FFFFFF;" textAlignment="CENTER">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <graphic>
-                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="QUITTER LE JEU">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Text>
-               </graphic>
-            </Button>
-         </children>
-      </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" />
+      <VBox alignment="CENTER" prefHeight="130.0" prefWidth="100.0" />
    </children>
 </VBox>
