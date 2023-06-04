@@ -5,6 +5,7 @@
 package principal;
 
 import principal.modele.Plateau;
+import principal.modele.Jeton;
 import principal.modele.Modele;
 
 import java.util.List;
@@ -72,25 +73,43 @@ public class ControleurVueJeu {
 //                Modele.getPalette().setCouleurOrdinateur(Modele.getPalette().getCouleurJ1());
 //            }
 //        }
-        Modele.setPlateauJeu(new Plateau());
+        if (!Modele.isPartieCharge()) {
+            Modele.setPlateauJeu(new Plateau());
+            Modele.getJoueur1().setScore(0);
+            Modele.getJoueur2().setScore(0);
+            Modele.getPalette().resetCouleurActive();
+        }
         Modele.setCercles(new Circle[8][8]);
         Modele.setButtons(new Button[8][8]);
-        displayActionOrdinateur.setText("");
-        Modele.getJoueur1().setScore(0);
-        Modele.getJoueur2().setScore(0);
-        Modele.getPalette().resetCouleurActive();
         registerBouttons();
+        displayActionOrdinateur.setText("");
         nomJoueur1.setStyle("-fx-text-fill: " + Modele.getPalette().getCouleurJ1() + "; " + "-fx-background-color: #75BB99;");
         nomJoueur2.setStyle("-fx-text-fill: " + Modele.getPalette().getCouleurJ2() + "; " + "-fx-background-color: #75BB99;");
         scoreJoueur1.setStyle("-fx-text-fill: " + Modele.getPalette().getCouleurJ1() + "; " + "-fx-background-color: #75BB99;");
         scoreJoueur2.setStyle("-fx-text-fill: " + Modele.getPalette().getCouleurJ2() + "; " + "-fx-background-color: #75BB99;");
         nomJoueur1.setText(Modele.getJoueur1().getPseudo());
         nomJoueur2.setText(Modele.getJoueur2().getPseudo());
-        creerCercle(4, 3);
-        creerCercle(3, 3);
-        creerCercle(3, 4);
+        if (!Modele.isPartieCharge()) {
+            creerCercle(4, 3);
+            creerCercle(3, 3);
+            creerCercle(3, 4);
+            initialisation = false;
+            creerCercle(4, 4);
+        } else {
+            Jeton[][] tmp = Modele.getPlateauJeu().getMatriceJeton();
+            for (int x = 0; x < 8; x++) {
+                for (int y = 0; y < 8; y++) {
+                    if (tmp[x][y].isAfficher()) {
+                        creerCercle(x, y, Paint.valueOf(tmp[x][y].isCouleurJ1()?
+                                           Modele.getPalette().getCouleurJ1(): 
+                                           Modele.getPalette().getCouleurJ2()));
+                    }
+                }
+            }
+            couleurJoueurActif.setFill(Paint.valueOf(Modele.getPalette().getCouleurActive()));
+        }
         initialisation = false;
-        creerCercle(4, 4);
+        Modele.setPartieCharge(false);
     }
 
     @FXML
@@ -170,7 +189,7 @@ public class ControleurVueJeu {
      * @param x
      * @param y
      */
-    void creerCercle(Integer x, Integer y) { //TODO
+    void creerCercle(Integer x, Integer y) {
         Modele.setJoueurPrecedentPasser(false);
         Circle cercle = new Circle(0, 0, 18);
         GridPane.setHalignment(cercle, HPos.CENTER);
@@ -179,6 +198,26 @@ public class ControleurVueJeu {
         Modele.creerCercleModele(x, y, couleur, cercle);
         grille.add(cercle, x, y);
         changeCouleurJoueurActif();
+        updateScore();
+        Modele.testFin();
+        Modele.NouveauJouables(Modele.getPalette().getCouleurActive());
+        if (!initialisation) {
+            checkOrdinateur();
+        }
+    }
+    
+    /**
+     * TODO comment method role
+     * 
+     * @param x
+     * @param y
+     */
+    void creerCercle(Integer x, Integer y, Paint couleur) {
+        Circle cercle = new Circle(0, 0, 18);
+        GridPane.setHalignment(cercle, HPos.CENTER);
+        cercle.setFill(couleur);
+        Modele.creerCercleModele(x, y, couleur, cercle);
+        grille.add(cercle, x, y);
         updateScore();
         Modele.testFin();
         Modele.NouveauJouables(Modele.getPalette().getCouleurActive());

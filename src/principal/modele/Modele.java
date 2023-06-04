@@ -17,6 +17,8 @@ public class Modele {
     
     private static int dernierMenuOuvert = 0;
     
+    private static boolean partieCharge = false;
+    
     private static boolean mode1Joueur;
     
     private static boolean mode1JoueurDifficile = false;
@@ -31,9 +33,9 @@ public class Modele {
     
     private static Theme palette;
     
-    private static Plateau plateauJeu;
+    private static Plateau plateauJeu = new Plateau();
     
-    private static Circle[][] cercles ;
+    private static Circle[][] cercles;
     
     private static Button[][] buttons;
     
@@ -134,6 +136,16 @@ public class Modele {
         return cercles;
     }
 
+    /** @return valeur de partieCharge */
+    public static boolean isPartieCharge() {
+        return partieCharge;
+    }
+
+    /** @param partieCharge nouvelle valeur de partieCharge */
+    public static void setPartieCharge(boolean partieCharge) {
+        Modele.partieCharge = partieCharge;
+    }
+
     /** @param cercles nouvelle valeur de cercles */
     public static void setCercles(Circle[][] cercles) {
         Modele.cercles = cercles;
@@ -187,6 +199,7 @@ public class Modele {
      * @param y
      */
     public static void changeCouleur(int x, int y) {
+        System.out.println(x + "|" + y);
         if (Modele.getCercles()[x][y].getFill().equals(Paint.valueOf(Modele.getPalette().getCouleurJ1()))) {
             changeCouleurJ2(x, y);
 
@@ -268,10 +281,12 @@ public class Modele {
      */
     public static void creerCercleModele(Integer x, Integer y, Paint couleur, Circle cercle) { //TODO
         Modele.getPlateauJeu().jetonExiste(x, y, couleur);
-        if (couleur.equals(Paint.valueOf(Modele.getPalette().getCouleurJ1()))) {
-            Modele.getJoueur1().incrementer();
-        } else {
-            Modele.getJoueur2().incrementer();
+        if (!Modele.isPartieCharge()) {
+            if (couleur.equals(Paint.valueOf(Modele.getPalette().getCouleurJ1()))) {
+                Modele.getJoueur1().incrementer();
+            } else {
+                Modele.getJoueur2().incrementer();
+            }
         }
         Modele.getCercles()[x][y] = cercle;
     }

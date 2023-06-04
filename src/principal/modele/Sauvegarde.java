@@ -26,13 +26,13 @@ public class Sauvegarde {
     public Sauvegarde(String nom) {
         super();
         this.nom = nom;
-        joueur1 = Modele.getJoueur1();
-        joueur2 = Modele.getJoueur2();
     }
 
     /** TODO comment method role
      */
     public void enregistrer() {
+        joueur1 = Modele.getJoueur1();
+        joueur2 = Modele.getJoueur2();
         String resultat = "";
         resultat += nom + "|";
         resultat += joueur1.getPseudo() + "|" + joueur1.getScore() + "|";
@@ -62,9 +62,41 @@ public class Sauvegarde {
     }
 
     /** TODO comment method role
+     * @param sauvegardeImporter 
      * 
      */
-    public void importer() {
-        // TODO Auto-generated method stub
+    public void importer(String sauvegardeImporter) {
+        String[] separerParties = sauvegardeImporter.split("[|]");
+        this.nom = separerParties[0];
+        this.joueur1 = new Joueur(separerParties[1]);
+        this.joueur1.setScore(Integer.parseInt(separerParties[2]));
+        this.joueur2 = new Joueur(separerParties[3]);
+        this.joueur2.setScore(Integer.parseInt(separerParties[4]));
+        Modele.setJoueur1(joueur1);
+        Modele.setJoueur2(joueur2);
+        Modele.setMode1Joueur(separerParties[5].equals("1"));
+        Modele.setMode1JoueurDifficile(separerParties[6].equals("1"));
+        Modele.setJoueurPrecedentPasser(separerParties[7].equals("1"));
+        Modele.getPalette().setCouleurActiveIsJ1(separerParties[8].equals("1"));
+        Modele.getPalette().setCouleurOrdinateurIsJ1(separerParties[9].equals("1"));
+        String[] tableauDePairs = separerParties[10].split("/");
+        String[][] matriceAFormater = new String[tableauDePairs.length][2];
+        for (int i = 0; i < matriceAFormater.length; i++) {
+            String[] tmp = tableauDePairs[i].split(",");
+            matriceAFormater[i][0] = tmp[0];
+            matriceAFormater[i][1] = tmp[1];
+        }
+        Jeton[][] matriceTmp = new Jeton[8][8];
+        for (int x = 0; x < 8; x++) {
+            for (int y = 0; y < 8; y++) {
+                matriceTmp[x][y] = new Jeton();
+                matriceTmp[x][y].setAfficher(matriceAFormater[x * 8 + y][0].equals(
+                                                                          "1"));
+                matriceTmp[x][y].setCouleurJ1(matriceAFormater[x * 8 + y][1].equals(
+                                                                          "1"));
+            }
+        }
+        Modele.getPlateauJeu().setMatriceJeton(matriceTmp);
+        Modele.setPartieCharge(true);
     }
 }

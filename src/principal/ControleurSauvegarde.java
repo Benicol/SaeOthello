@@ -58,8 +58,8 @@ public class ControleurSauvegarde {
         if (!entrer.getText().matches("^[a-zA-Z0-9 ]*$")) {
             messageErreur.setText("Veuillez uniquement utiliser des lettres et chiffres (pas d'espace)");
             messageErreur.setOpacity(1);
-        } else if (entrer.getText().length() > 15){
-            messageErreur.setText("Votre Pseudonyme doit faire moins de 15 caractères");
+        } else if (entrer.getText().length() > 30){
+            messageErreur.setText("Votre Pseudonyme doit faire moins de 30 caractères");
             messageErreur.setOpacity(1);
         } else {
             Sauvegarde nouvelleSauvegarde = new Sauvegarde(entrer.getText());

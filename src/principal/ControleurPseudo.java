@@ -27,7 +27,7 @@ public class ControleurPseudo {
     @FXML
     private void initialize() {
         if (Modele.isMode1Joueur()) {
-            labelPseudo.setText("Pseudo joueur");
+            labelPseudo.setText("joueur");
             entrer.setPromptText("Joueur humain");
         }
     }
