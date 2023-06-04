@@ -27,7 +27,7 @@ class TestJoueur {
      * Initialisation de plusieurs object Joueur
      */
     @BeforeEach 
-    void InitialiserJeton(){
+    void InitialiserJoueur(){
     	joueurVide = new Joueur(null);
         joueur1 = new Joueur("pseudo1");
         
@@ -100,7 +100,37 @@ class TestJoueur {
     	}
     	assertEquals(joueur3.getScore(),0);
     	assertThrows(IllegalArgumentException.class, () -> 
-    							joueurVide.decrementer());
+    						      joueurVide.decrementer());
+    }
+    
+    /**
+     * Test method for {@link principal.modele.Joueur#setPseudo(String)}.
+     */
+    @Test
+    void testSetPseudo() {
+        String ancienPseudo = joueur1.getPseudo();
+        assertDoesNotThrow(() -> joueur1.setPseudo("nouveau pseudo"));
+        assertNotEquals(joueur1.getPseudo(),ancienPseudo);
+        assertEquals(joueur1.getPseudo(),"nouveau pseudo");
+        assertDoesNotThrow(() -> joueur2.setPseudo(null));
+        
+    }
+    
+    /**
+     * Test method for {@link principal.modele.Joueur#setScore(int)}.
+     */
+    @Test
+    void testSetScore() {
+        for (int i = 0; i < 100000; i++) {
+            int nouveauScore = i;
+            assertDoesNotThrow(() -> joueur2.setScore(nouveauScore));
+            assertEquals(joueur2.getScore(),nouveauScore);
+        }
+        for (int i = -1; i > -1000; i--) {
+            int nouveauScore = i;
+            assertThrows(IllegalArgumentException.class, () -> 
+                                                joueur2.setScore(nouveauScore));
+        }
     }
 
 }

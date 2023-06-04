@@ -5,7 +5,7 @@
 package principal.modele;
 
 /** TODO comment class responsibility (SRP)
- * @author Groupe32
+ * @author groupe32
  */
 public class Joueur {
     
@@ -52,6 +52,9 @@ public class Joueur {
 
     /** @param score nouvelle valeur de score */
     public void setScore(int score) {
+        if (score < 0) {
+            throw new IllegalArgumentException("Le score ne peux pas être négatif");
+        }
         this.score = score;
     }
     

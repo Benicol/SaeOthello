@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.paint.Paint;
 
 /** TODO comment class responsibility (SRP)
- * @author benji
+ * @author groupe32
  *
  */
 public class Modele {
