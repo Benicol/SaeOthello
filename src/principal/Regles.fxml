@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurRegles">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <children>
+            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="4.0" text="RÈGLES">
+               <font>
+                  <Font name="System Bold" size="60.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <GridPane alignment="CENTER" gridLinesVisible="true" minHeight="150.0" prefHeight="200.0" prefWidth="150.0" style="-fx-background-color: #009E6D;">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Circle fill="WHITE" radius="7.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <Circle fill="WHITE" radius="7.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <Circle radius="7.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <Circle radius="7.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+               </children>
+            </GridPane>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="L’Othello est un jeu qui se joue en 1 contre 1, sur un plateau de 8 cases par 8 cases. Une partie commence systématique avec 4 jetons placés au centre." textAlignment="JUSTIFY" wrappingWidth="330.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chaque tour, un joueur place un jeton de sa couleur. S’il arrive à encadrer un ou plusieurs jetons appartenant à l’adversaire (que ce soit en ligne, en colonne, ou en diagonale), alors ces jetons changent de couleur pour passer dans son camps." textAlignment="JUSTIFY" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </Text>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#suivantPresse" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <graphic>
+            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="SUIVANT">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+         </graphic>
+         <VBox.margin>
+            <Insets top="60.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

@@ -7,31 +7,31 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="901.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="900.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurVictoire">
    <children>
-      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="FELICITATIONS !">
+      <Text fx:id="felDefText" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="FELICITATIONS !">
          <font>
             <Font name="System Bold" size="64.0" />
          </font>
       </Text>
-      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="[insérer pseudo]">
+      <Text fx:id="pseudoVainqueur" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="[insérer pseudo]">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="A GAGNÉ ">
+      <Text fx:id="aGagneText" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="A GAGNÉ ">
          <font>
             <Font name="System Bold" size="64.0" />
          </font>
       </Text>
-      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="[score gagnant] à [score perdant]">
+      <Text fx:id="scores" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="[score gagnant] à [score perdant]">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Text>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rejouerPresser" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
                <font>
                 <Font name="System Bold" size="20.0" />
                </font>
@@ -52,7 +52,7 @@
                   </Text>
                </graphic>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#menuPresser" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
                <effect>
                   <DropShadow />
                </effect>

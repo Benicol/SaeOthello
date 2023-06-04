@@ -9,13 +9,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurVueJeu">
+<VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurVueJeu">
    <children>
       <HBox prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: #75BB99;">
          <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="77.0" prefWidth="90.0">
                <children>
-                  <Button fx:id="menu" mnemonicParsing="false" onAction="#menuTest" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" style="-fx-background-color: #75BB99;">
+                  <Button fx:id="menu" mnemonicParsing="false" onAction="#menuPresse" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" style="-fx-background-color: #75BB99;">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -27,12 +27,12 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" style="-fx-text-fill: #FFFFFF;">
                <children>
-                  <TextField fx:id="nomJoueur1" alignment="BASELINE_CENTER" editable="false" style="-fx-background-color: #75BB99; -fx-text-fill: #FFFFFF;" text="Joueur 1">
+                  <TextField fx:id="nomJoueur1" alignment="BASELINE_CENTER" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #75BB99; -fx-text-fill: #FFFFFF;" text="Joueur 1">
                      <VBox.margin>
-                        <Insets left="10.0" />
+                        <Insets left="-20.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Consolas Bold" size="24.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -41,12 +41,12 @@
                         <Insets bottom="-4.0" />
                      </padding>
                   </TextField>
-                  <TextField fx:id="scoreJoueur1" alignment="TOP_CENTER" editable="false" style="-fx-background-color: #75BB99; -fx-text-fill: #FFFFFF;" text="8">
+                  <TextField fx:id="scoreJoueur1" alignment="TOP_CENTER" editable="false" style="-fx-background-color: #75BB99; -fx-text-fill: #FFFFFF;" text="0">
                      <VBox.margin>
-                        <Insets left="10.0" />
+                        <Insets left="-20.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Consolas Bold" size="24.0" />
                      </font>
                      <padding>
                         <Insets top="-4.0" />
@@ -56,28 +56,31 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Circle fx:id="couleurJoueurActif" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Circle fx:id="couleurJoueurActif" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                     <VBox.margin>
+                        <Insets left="-40.0" />
+                     </VBox.margin></Circle>
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0">
                <children>
-                  <TextField fx:id="nomJoueur2" alignment="CENTER" editable="false" style="-fx-background-color: #75BB99;" text="Joueur 2">
+                  <TextField fx:id="nomJoueur2" alignment="CENTER" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #75BB99;" text="Joueur 2">
                      <VBox.margin>
-                        <Insets right="10.0" />
+                        <Insets left="-40.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Consolas Bold" size="24.0" />
                      </font>
                      <padding>
                         <Insets bottom="-4.0" />
                      </padding>
                   </TextField>
-                  <TextField fx:id="scoreJoueur2" alignment="CENTER" editable="false" style="-fx-background-color: #75BB99;" text="3">
+                  <TextField fx:id="scoreJoueur2" alignment="CENTER" editable="false" style="-fx-background-color: #75BB99;" text="0">
                      <VBox.margin>
-                        <Insets right="10.0" />
+                        <Insets left="-30.0" right="10.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Consolas Bold" size="24.0" />
                      </font>
                      <padding>
                         <Insets top="-4.0" />
@@ -178,15 +181,23 @@
             <Button alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#nodePressed" prefHeight="42.0" prefWidth="42.0" style="-fx-border-color: #ff000000; -fx-border-radius: 50; -fx-border-style: segments(5, 5, 5, 5); -fx-border-width: 2; -fx-background-color: #ff000000;" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Button fx:id="passerTour" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#passerSonTour" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" style="-fx-background-color: #75BB99; -fx-background-radius: 50px;" text="Passer son tour" textAlignment="CENTER">
+            <Label fx:id="displayActionOrdinateur" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="550.0" text="Action Joueur Ordinateur Display">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="passerTour" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#passerSonTourPresse" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" style="-fx-background-color: #75BB99; -fx-background-radius: 50px;" text="Passer son tour" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
                <effect>
                   <DropShadow />
                </effect>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
             </Button>
          </children>
       </VBox>

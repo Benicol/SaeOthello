@@ -5,43 +5,52 @@
 package principal;
 
 import principal.modele.Modele;
-import principal.modele.Theme;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
-/** TODO comment class responsibility (SRP)
+/**
+ * TODO comment class responsibility (SRP)
+ * 
  * @author benji
  *
  */
 public class ControleurPseudo {
     
     @FXML
+    private Label messageErreur;
+
+    @FXML
     private void initialize() {
-        labelPseudo.setFill(Paint.valueOf(Modele.getPalette().getCouleurJ1()));
-        labelPseudo.setStroke(Paint.valueOf(Modele.getPalette().getCouleurJ2()));
+        if (Modele.isMode1Joueur()) {
+            labelPseudo.setText("Pseudo joueur");
+            entrer.setPromptText("Joueur humain");
+        }
     }
     
-    boolean phaseDeux = false;
+    String pseudo1 = "";
     
+    String pseudo2 = "";
+
+    boolean phaseDeux = false;
+
     @FXML
     private TextField entrer;
-    
+
     @FXML
     private Text labelPseudo;
-    
+
     @FXML
     void buttonEntered(MouseEvent event) {
         Button boutton = (Button) event.getSource();
         String beforeStyle = boutton.getStyle();
         int premierePointVirgule = beforeStyle.indexOf(";") + 1;
-        boutton.setStyle("-fx-background-color: #008656;"
-                         + beforeStyle.substring(premierePointVirgule,
-                                                         beforeStyle.length()));
+        boutton.setStyle(
+                "-fx-background-color: #008656;" + beforeStyle.substring(premierePointVirgule, beforeStyle.length()));
     }
 
     @FXML
@@ -49,35 +58,62 @@ public class ControleurPseudo {
         Button boutton = (Button) event.getSource();
         String beforeStyle = boutton.getStyle();
         int premierePointVirgule = beforeStyle.indexOf(";") + 1;
-        boutton.setStyle("-fx-background-color: #009E6D;"
-                + beforeStyle.substring(premierePointVirgule,
-                                                beforeStyle.length()));
+        boutton.setStyle(
+                "-fx-background-color: #009E6D;" + beforeStyle.substring(premierePointVirgule, beforeStyle.length()));
     }
-    
+
     @FXML
     void validerCliquer(ActionEvent event) {
-        if (!phaseDeux) {
-            labelPseudo.setFill(Paint.valueOf(
-                                           Modele.getPalette().getCouleurJ2()));
-            labelPseudo.setStroke(Paint.valueOf(
-                    Modele.getPalette().getCouleurJ1()));
-            if(entrer.getText().length() == 0) {
-                Modele.setPseudoJ1(entrer.getPromptText());
-            } else {
-                Modele.setPseudoJ1(entrer.getText());
-            }
-            entrer.setPromptText("Joueur 2");
-            entrer.setText("");
-            labelPseudo.requestFocus();
-            phaseDeux = true;
+        if (!entrer.getText().matches("^[a-zA-Z0-9 ]*$")) {
+            messageErreur.setText("Veuillez uniquement utiliser des lettres et chiffres");
+            messageErreur.setOpacity(1);
+        } else if (entrer.getText().length() > 15){
+            messageErreur.setText("Votre Pseudonyme doit faire moins de 15 caractères");
+            messageErreur.setOpacity(1);
         } else {
-            if(entrer.getText().length() == 0) {
-                Modele.setPseudoJ2(entrer.getPromptText());
+            messageErreur.setOpacity(0);
+            
+            if (!Modele.isMode1Joueur()) {
+                if (!phaseDeux) {
+                    if (entrer.getText().length() == 0) {
+                        pseudo1 = entrer.getPromptText();
+                    } else {
+                        pseudo1 = entrer.getText();
+                    }
+                    entrer.setPromptText("Joueur 2");
+                    entrer.setText("");
+                    labelPseudo.setText("Pseudo joueur 2");
+                    labelPseudo.requestFocus();
+                } else {
+                    if (entrer.getText().length() == 0) {
+                        pseudo2 = entrer.getPromptText();
+                    } else {
+                        pseudo2 = entrer.getText();
+                    }
+                }
             } else {
-                Modele.setPseudoJ2(entrer.getText());
+                if (entrer.getText().length() == 0) {
+                    pseudo1 = entrer.getPromptText();
+                } else {
+                    pseudo1 = entrer.getText();
+                }
+                pseudo2 = "Ordinateur";
+                phaseDeux = true;
             }
-            EchangeurDeVue.supprimerCache(2);
-            EchangeurDeVue.echangerAvec(1, 700, 600);
+            if (phaseDeux) {
+                int nbRandom = (int) (Math.random() * 2);
+                if (nbRandom == 0) {
+                    Modele.getPalette().setCouleurOrdinateurIsJ1(false);
+                    Modele.getJoueur1().setPseudo(pseudo1);
+                    Modele.getJoueur2().setPseudo(pseudo2);
+                } else {
+                    Modele.getPalette().setCouleurOrdinateurIsJ1(true);
+                    Modele.getJoueur1().setPseudo(pseudo2);
+                    Modele.getJoueur2().setPseudo(pseudo1);
+                }
+                EchangeurDeVue.echangerAvec(1, 700, 600, true);
+            }
+            phaseDeux = true;
         }
     }
 

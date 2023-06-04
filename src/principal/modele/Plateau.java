@@ -14,8 +14,6 @@ import javafx.scene.paint.Paint;
  */
 public class Plateau {
     
-    private Theme couleurs;
-    
     /* taille de la matrice qui représente le plateau de jeu */
     private final int TAILLE = 8;
     
@@ -23,11 +21,9 @@ public class Plateau {
     private Jeton[][] matrice;
     
     /** TODO comment intial state
-     * @param couleurs 
      * 
      */
-    public Plateau (Theme couleurs) {
-        this.couleurs = couleurs;
+    public Plateau () {
         this.matrice = new Jeton[TAILLE][TAILLE];
         for (int x = 0; x < TAILLE; x++) {
             for (int y = 0; y < TAILLE; y++) {
@@ -43,7 +39,7 @@ public class Plateau {
      */
     public void jetonExiste(int x, int y, Paint couleur) {
         this.matrice[x][y].devientAfficher();
-        if (couleur.equals(Paint.valueOf(couleurs.getCouleurJ1()))) {
+        if (couleur.equals(Paint.valueOf(Modele.getPalette().getCouleurJ1()))) {
             this.matrice[x][y].setCouleurJ1(true);
         }
     }
@@ -57,12 +53,12 @@ public class Plateau {
      * @return TODO
      */
     public int[][] chercherPlacementsPossible() {
-        Stack<int[]> coordsPossible = new Stack();
-        Stack<int[]> coords = new Stack();
+        Stack<int[]> coordsPossible = new Stack<int[]>();
+        Stack<int[]> coords = new Stack<int[]>();
         for (int x = 0; x < TAILLE; x++) {
             for (int y = 0; y < TAILLE; y++) {
-                if (couleurs.getCouleurActive().equals(
-                        couleurs.getCouleurJ1())) {
+                if (Modele.getPalette().getCouleurActive().equals(
+                        Modele.getPalette().getCouleurJ1())) {
                     if (matrice[x][y].isAfficher() && 
                         matrice[x][y].isCouleurJ1()) {
                         int [] coord = {x, y};
@@ -89,16 +85,16 @@ public class Plateau {
                             int[] offSet = {x, y};
                             boolean couleurRecherche = 
                                 matrice[newCoord[0]][newCoord[1]].isCouleurJ1();
-                            if (couleurs.getCouleurActive().equals(
-                                couleurs.getCouleurJ2()) &&
+                            if (Modele.getPalette().getCouleurActive().equals(
+                                Modele.getPalette().getCouleurJ2()) &&
                                 couleurRecherche) {
                                 coordsPossible.push(trouveFinLigneRecursif(newCoord, 
                                                      offSet, couleurRecherche));
                                 if (coordsPossible.peek()[0] == -1) {
                                     coordsPossible.pop();
                                 }
-                            } else if (couleurs.getCouleurActive().equals(
-                                       couleurs.getCouleurJ1()) &&
+                            } else if (Modele.getPalette().getCouleurActive().equals(
+                                       Modele.getPalette().getCouleurJ1()) &&
                                        !couleurRecherche){
                                 coordsPossible.push(trouveFinLigneRecursif(newCoord, 
                                         offSet, couleurRecherche));
@@ -145,10 +141,11 @@ public class Plateau {
     /** TODO comment method role
      * @param abscisse
      * @param ordonnee
+     * @param retourneModel 
      * @return TODO : modifier
      */
     public int[][] retournerJetons(int abscisse, int ordonnee) {
-        Stack<int[]> coordsATourner = new Stack();
+        Stack<int[]> coordsATourner = new Stack<int[]>();
         int[] coord = {abscisse, ordonnee};
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
@@ -159,16 +156,16 @@ public class Plateau {
                         int[] offSet = {x, y};
                         boolean couleurRecherche = 
                             matrice[newCoord[0]][newCoord[1]].isCouleurJ1();
-                        if (couleurs.getCouleurActive().equals(
-                            couleurs.getCouleurJ2()) &&
+                        if (Modele.getPalette().getCouleurActive().equals(
+                            Modele.getPalette().getCouleurJ2()) &&
                             couleurRecherche) {
                             coordsATourner.addAll((jetonsSurCheminRecursif(newCoord,
                                                 offSet, couleurRecherche)));
                             if (coordsATourner.peek()[0] == -1) {
                                 coordsATourner.pop();
                             }
-                        } else if (couleurs.getCouleurActive().equals(
-                                    couleurs.getCouleurJ1()) &&
+                        } else if (Modele.getPalette().getCouleurActive().equals(
+                                    Modele.getPalette().getCouleurJ1()) &&
                                     !couleurRecherche){
                             coordsATourner.addAll(jetonsSurCheminRecursif(newCoord,
                                         offSet, couleurRecherche));
@@ -183,7 +180,6 @@ public class Plateau {
         int[][] resultat = new int[coordsATourner.size()][2];
         for (int i = 0; i < resultat.length; i++) {
             resultat[i] = coordsATourner.pop();
-            changeCouleur(resultat[i][0], resultat[i][1]);
         }
         return resultat;
     }
@@ -194,8 +190,8 @@ public class Plateau {
     private Stack<int[]> jetonsSurCheminRecursif(int[] coord, int[] offSet, boolean couleurCherche) {
         int[] newCoord = {coord[0] + offSet[0], coord[1] + offSet[1]};
         int[] errCoord = {-1};
-        Stack<int[]> chemain = new Stack();
-        Stack<int[]> chemainErr = new Stack();
+        Stack<int[]> chemain = new Stack<int[]>();
+        Stack<int[]> chemainErr = new Stack<int[]>();
         chemainErr.add(errCoord);
         if (!isCoordValide(newCoord) || 
             !matrice[newCoord[0]][newCoord[1]].isAfficher()) {
@@ -234,8 +230,59 @@ public class Plateau {
         return resultat;
     }
     
-    void changeCouleur(int x, int y) {
-        matrice[x][y].switchCouleurJ1();
+    /** TODO comment method role
+     * @param aChanger
+     */
+    public void changeCouleurArray(int[][] aChanger) {
+        for (int[] elt : aChanger) {
+            matrice[elt[0]][elt[1]].switchCouleurJ1(); 
+        }
+    }
+    
+    /** TODO comment method role
+     * @return TODO
+     * 
+     */
+    public int[] ordinateurFacile() {
+        int[][] possibilites = chercherPlacementsPossible();
+        int[] aucunePossiblite = {-1, -1};
+        int nbRandom = (int) (Math.random() * possibilites.length);
+        if (possibilites.length == 0) {
+            return aucunePossiblite;
+        } else {
+            return possibilites[nbRandom];
+        }
+    }
+    
+    /** TODO comment method role
+     * @return TODO
+     * 
+     */
+    public int[] ordinateurDifficile() {
+        int[][] possibilites = chercherPlacementsPossible();
+        int maxLength = 0;
+        int[][] tmp;
+        int[] resultat = {-1, -1};
+        for (int[] elt : possibilites) {
+            tmp = retournerJetons(elt[0], elt[1]);
+            if (tmp.length >= maxLength) {
+                resultat = elt;
+                maxLength = tmp.length;
+            }
+        }
+        return resultat;
+        
+        
+        
     }
 
+    /** @return valeur de matrice */
+    public Jeton[][] getMatriceJeton() {
+        return matrice;
+    }
+
+    /** @param matrice nouvelle valeur de matrice */
+    public void setMatriceJeton(Jeton[][] matrice) {
+        this.matrice = matrice;
+    }
 }

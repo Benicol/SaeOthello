@@ -86,6 +86,25 @@
       </VBox>
       <VBox alignment="CENTER" prefHeight="130.0" prefWidth="100.0">
          <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonAideAppuyer" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-background-radius: 50px;" textAlignment="CENTER">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="AIDE DE JEU">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="130.0" prefWidth="100.0">
+         <children>
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonOptionsAppuyer" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-background-radius: 50px;" textAlignment="CENTER">
                <effect>
                   <DropShadow />
@@ -103,28 +122,27 @@
             </Button>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="130.0" prefWidth="100.0">
+      <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonQuitterAppuyer" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="44.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-background-radius: 50px; -fx-text-fill: #FFFFFF;" textAlignment="CENTER">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <graphic>
-                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="QUITTER LE JEU">
+            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="600.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonQuitterAppuyer" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-background-radius: 50px;" textAlignment="CENTER">
+                     <effect>
+                        <DropShadow />
+                     </effect>
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
-                  </Text>
-               </graphic>
-            </Button>
-         </children>
-      </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" />
+                     <graphic>
+                        <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="QUITTER">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children></VBox>
    </children>
 </VBox>

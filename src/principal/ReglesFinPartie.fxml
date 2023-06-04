@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurReglesFinPartie">
+   <children>
+      <VBox alignment="CENTER" prefHeight="150.0" prefWidth="600.0">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+         <children>
+            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="4.0" text="FIN DE PARTIE">
+               <font>
+                  <Font name="System Bold" size="60.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <Text lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Il existe 3 manières de finir une partie :" textAlignment="JUSTIFY" underline="true" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </Text>
+      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="➔ Toutes les cases sont occupées :                               Une fin de partie peut s’annoncer lorsque toutes les cases sont occupées par un jeton. Le vainqueur est alors le joueur ayant le plus de jetons de sa couleur." wrappingWidth="501.953125">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="➔ Plus personne ne peut jouer :                                   La partie s'arrête alors immédiatement, le vainqueur est le joueur ayant le plus de jeton de sa couleur sur le plateau." textAlignment="JUSTIFY" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Text>
+      <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="➔ Les deux joueurs passent leur tour à la suite :         La partie s'arrête à nouveau immédiatement, et le vainqueur est toujours le joueur ayant le plus de jeton de sa couleur sur le plateau." textAlignment="JUSTIFY" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#suivantPresse" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <graphic>
+            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="SUIVANT">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+         </graphic>
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

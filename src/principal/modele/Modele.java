@@ -4,41 +4,40 @@
  */
 package principal.modele;
 
+import javafx.scene.shape.Circle;
+import principal.EchangeurDeVue;
+import javafx.scene.control.Button;
+import javafx.scene.paint.Paint;
+
 /** TODO comment class responsibility (SRP)
  * @author benji
  *
  */
 public class Modele {
+    
+    private static int dernierMenuOuvert = 0;
+    
+    private static boolean mode1Joueur;
+    
+    private static boolean mode1JoueurDifficile = false;
+    
+    private static boolean joueurPrecedentPasser = false;
 
-    private static String PseudoJ1;
+    private static Joueur joueur1 = new Joueur(null);
+
+    private static Joueur joueur2 = new Joueur(null);
     
     private static String PseudoVainqueur;
     
-    private static int[] scores = new int[2];
-    
     private static Theme palette;
     
-    private static String PseudoJ2;
+    private static Plateau plateauJeu;
+    
+    private static Circle[][] cercles ;
+    
+    private static Button[][] buttons;
+    
 
-    /** @return valeur de pseudoJ1 */
-    public static String getPseudoJ1() {
-        return PseudoJ1;
-    }
-
-    /** @param pseudoJ1 nouvelle valeur de pseudoJ1 */
-    public static void setPseudoJ1(String pseudoJ1) {
-        PseudoJ1 = pseudoJ1;
-    }
-
-    /** @return valeur de pseudoJ2 */
-    public static String getPseudoJ2() {
-        return PseudoJ2;
-    }
-
-    /** @param pseudoJ2 nouvelle valeur de pseudoJ2 */
-    public static void setPseudoJ2(String pseudoJ2) {
-        PseudoJ2 = pseudoJ2;
-    }
 
     /** @return valeur de palette */
     public static Theme getPalette() {
@@ -60,16 +59,234 @@ public class Modele {
         PseudoVainqueur = pseudoVainqueur;
     }
 
-    /** @return valeur de scores */
-    public static int[] getScores() {
-        return scores;
+    /** @return valeur de dernierMenuOuvert */
+    public static int getDernierMenuOuvert() {
+        return dernierMenuOuvert;
     }
 
-    /** @param scores nouvelle valeur de scores */
-    public static void setScores(int[] scores) {
-        Modele.scores = scores;
+    /** @param dernierMenuOuvert nouvelle valeur de dernierMenuOuvert */
+    public static void setDernierMenuOuvert(int dernierMenuOuvert) {
+        Modele.dernierMenuOuvert = dernierMenuOuvert;
+    }
+
+    /** @return valeur de mode1Joueur */
+    public static boolean isMode1Joueur() {
+        return mode1Joueur;
+    }
+
+    /** @param mode1Joueur nouvelle valeur de mode1Joueur */
+    public static void setMode1Joueur(boolean mode1Joueur) {
+        Modele.mode1Joueur = mode1Joueur;
+    }
+
+    /** @return valeur de joueur1 */
+    public static Joueur getJoueur1() {
+        return joueur1;
+    }
+
+    /** @param joueur1 nouvelle valeur de joueur1 */
+    public static void setJoueur1(Joueur joueur1) {
+        Modele.joueur1 = joueur1;
+    }
+
+    /** @return valeur de joueur2 */
+    public static Joueur getJoueur2() {
+        return joueur2;
+    }
+
+    /** @param joueur2 nouvelle valeur de joueur2 */
+    public static void setJoueur2(Joueur joueur2) {
+        Modele.joueur2 = joueur2;
+    }
+
+    /** @return valeur de mode1JoueurDifficile */
+    public static boolean isMode1JoueurDifficile() {
+        return mode1JoueurDifficile;
+    }
+
+    /** @param mode1JoueurDifficile nouvelle valeur de mode1JoueurDifficile */
+    public static void setMode1JoueurDifficile(boolean mode1JoueurDifficile) {
+        Modele.mode1JoueurDifficile = mode1JoueurDifficile;
+    }
+
+    /** @return valeur de joueurPrecedentPasser */
+    public static boolean isJoueurPrecedentPasser() {
+        return joueurPrecedentPasser;
+    }
+
+    /** @param joueurPrecedentPasser nouvelle valeur de joueurPrecedentPasser */
+    public static void setJoueurPrecedentPasser(boolean joueurPrecedentPasser) {
+        Modele.joueurPrecedentPasser = joueurPrecedentPasser;
+    }
+
+    /** @return valeur de plateauJeu */
+    public static Plateau getPlateauJeu() {
+        return plateauJeu;
+    }
+
+    /** @param plateauJeu nouvelle valeur de plateauJeu */
+    public static void setPlateauJeu(Plateau plateauJeu) {
+        Modele.plateauJeu = plateauJeu;
+    }
+
+    /** @return valeur de cercles */
+    public static Circle[][] getCercles() {
+        return cercles;
+    }
+
+    /** @param cercles nouvelle valeur de cercles */
+    public static void setCercles(Circle[][] cercles) {
+        Modele.cercles = cercles;
+    }
+
+    /** @return valeur de buttons */
+    public static Button[][] getButtons() {
+        return buttons;
+    }
+
+    /** @param buttons nouvelle valeur de buttons */
+    public static void setButtons(Button[][] buttons) {
+        Modele.buttons = buttons;
+    } 
+    
+    /** TODO comment method role
+     * @return TODO
+     */
+    public static boolean estTourOrdinateur() {
+        return (Modele.isMode1Joueur() && Modele.getPalette().getCouleurActive().equals(
+                Modele.getPalette().getCouleurOrdinateur()));
     }
     
+    /** TODO comment method role
+     * 
+     */
+    public static void fin() {
+        EchangeurDeVue.supprimerCache(1);
+        if (Modele.getJoueur1().getScore() > Modele.getJoueur2().getScore()) {
+            Modele.setPseudoVainqueur(Modele.getJoueur1().getPseudo());
+            EchangeurDeVue.echangerAvec(4, 525, 900, false);
+        } else if (Modele.getJoueur1().getScore() < Modele.getJoueur2().getScore()) {
+            Modele.setPseudoVainqueur(Modele.getJoueur2().getPseudo());
+            EchangeurDeVue.echangerAvec(4, 525, 900, false);
+        } else {
+            EchangeurDeVue.echangerAvec(3, 525, 900, false);
+        }
+    }
     
+    /** TODO comment method role
+     * 
+     */
+    public static void testFin() {
+        if (Modele.getJoueur1().getScore() + Modele.getJoueur2().getScore() == 64) {
+            Modele.fin();
+        }
+    }
     
+    /** TODO comment method role
+     * @param x
+     * @param y
+     */
+    public static void changeCouleur(int x, int y) {
+        if (Modele.getCercles()[x][y].getFill().equals(Paint.valueOf(Modele.getPalette().getCouleurJ1()))) {
+            changeCouleurJ2(x, y);
+
+        } else {
+            changeCouleurJ1(x, y);
+        }
+    }
+
+    private static void changeCouleurJ1(int x, int y) {
+        Modele.getCercles()[x][y].setFill(Paint.valueOf(Modele.getPalette().getCouleurJ1()));
+        Modele.getJoueur1().incrementer();
+        Modele.getJoueur2().decrementer();
+    }
+
+    private static void changeCouleurJ2(int x, int y) {
+        Modele.getCercles()[x][y].setFill(Paint.valueOf(Modele.getPalette().getCouleurJ2()));
+        Modele.getJoueur2().incrementer();
+        Modele.getJoueur1().decrementer();
+        ;
+    }
+    
+    /** TODO comment method role
+     * @param coords
+     * @return TODO
+     */
+    public static int retournerJetons(int[] coords) {
+        int[][] tmp = Modele.getPlateauJeu().retournerJetons(coords[0], coords[1]);
+        Modele.getPlateauJeu().changeCouleurArray(tmp);
+        for (int[] element : tmp) {
+            changeCouleur(element[0], element[1]);
+        }
+        return tmp.length;
+    }
+    
+    /** TODO comment method role
+     * 
+     */
+    public static void resetAllPlayables() {
+        for (Button[] eltListe : Modele.getButtons()) {
+            for (Button elt : eltListe) {
+                elt.setStyle("-fx-border-color: #ff000000;" + "-fx-border-radius: 50;"
+                        + " -fx-border-style: segments(5, 5, 5, 5);" + " -fx-border-width: 2;"
+                        + " -fx-background-color: #ff000000;");
+                elt.setDisable(true);
+            }
+        }
+    }
+    
+    /** TODO comment method role
+     * @param x
+     * @param y
+     * @param couleur
+     */
+    public static void afficherContourBoutton(int x, int y, String couleur) {
+        Modele.getButtons()[x][y].setStyle("-fx-border-color: " + couleur + " ;" + " -fx-border-radius: 50;"
+                + " -fx-border-style: segments(5, 5, 5, 5);" + " -fx-border-width: 2;"
+                + " -fx-background-color: #ff000000;");
+    }
+    
+    /** TODO comment method role
+     * @param couleur
+     */
+    public static void NouveauJouables(String couleur) {
+        Modele.resetAllPlayables();
+        int[][] coordsJouable = Modele.getPlateauJeu().chercherPlacementsPossible();
+        for (int[] elt : coordsJouable) {
+            Modele.afficherContourBoutton(elt[0], elt[1], couleur);
+            Modele.getButtons()[elt[0]][elt[1]].setDisable(false);
+        }
+    }
+    
+    /**
+     * TODO comment method role
+     * 
+     * @param x
+     * @param y
+     * @param couleur 
+     * @param cercle 
+     */
+    public static void creerCercleModele(Integer x, Integer y, Paint couleur, Circle cercle) { //TODO
+        Modele.getPlateauJeu().jetonExiste(x, y, couleur);
+        if (couleur.equals(Paint.valueOf(Modele.getPalette().getCouleurJ1()))) {
+            Modele.getJoueur1().incrementer();
+        } else {
+            Modele.getJoueur2().incrementer();
+        }
+        Modele.getCercles()[x][y] = cercle;
+    }
+
+    /** TODO comment method role
+     * @return TODO
+     * 
+     */
+    public static int[] checkOrdinateur() {
+        int[] actionOrdinateur = new int[2];
+        if (Modele.isMode1JoueurDifficile()) {
+            actionOrdinateur = Modele.getPlateauJeu().ordinateurDifficile();
+        } else {
+            actionOrdinateur = Modele.getPlateauJeu().ordinateurFacile();
+        }
+        return actionOrdinateur;
+    }
 }

@@ -15,7 +15,9 @@ public class Theme {
     
     private String couleurJ2;
     
-    private String couleurActive;
+    private Boolean couleurActiveIsJ1;
+    
+    private Boolean couleurOrdinateurIsJ1;
     
     /** TODO comment intial state
      * @param couleurJ1
@@ -24,7 +26,8 @@ public class Theme {
     public Theme(String couleurJ1, String couleurJ2) {
         this.couleurJ1 = couleurJ1;
         this.couleurJ2 = couleurJ2;
-        this.couleurActive = couleurJ2;
+        this.couleurActiveIsJ1 = false;
+        this.couleurOrdinateurIsJ1 = true;
     }
 
     /** @return valeur de couleurJ1 */
@@ -39,16 +42,19 @@ public class Theme {
     
     /** @return valeur de couleurJ2 */
     public String getCouleurActive() {
-        return couleurActive;
+        return couleurActiveIsJ1 ? couleurJ1 : couleurJ2;
+    }
+    
+    /** TODO comment method role
+     * 
+     */
+    public void resetCouleurActive() {
+        couleurActiveIsJ1 = false;
     }
     
     /***/
     public void switchCouleurActive() {
-        if (couleurActive.equals(couleurJ1)) {
-            couleurActive = couleurJ2;
-        } else {
-            couleurActive = couleurJ1;
-        }
+        couleurActiveIsJ1 = !couleurActiveIsJ1;
     }
     
     /** @param couleur 
@@ -60,4 +66,47 @@ public class Theme {
            return couleurJ1;
        }
     }
+
+    /** @return valeur de couleurOrdinateur */
+    public String getCouleurOrdinateur() {
+        return couleurOrdinateurIsJ1 ? couleurJ1 : couleurJ2;
+    }
+
+    /** @param couleurOrdinateurIsJ1 */
+    public void setCouleurOrdinateurIsJ1(boolean couleurOrdinateurIsJ1) {
+        this.couleurOrdinateurIsJ1 = couleurOrdinateurIsJ1;
+    }
+
+    /** @param couleurJ1 nouvelle valeur de couleurJ1 */
+    public void setCouleurJ1(String couleurJ1) {
+        this.couleurJ1 = couleurJ1;
+    }
+
+    /** @param couleurJ2 nouvelle valeur de couleurJ2 */
+    public void setCouleurJ2(String couleurJ2) {
+        this.couleurJ2 = couleurJ2;
+    }
+
+    /** @return valeur de couleurActiveIsJ1 */
+    public Boolean getCouleurActiveIsJ1() {
+        return couleurActiveIsJ1;
+    }
+
+    /** @param couleurActiveIsJ1 nouvelle valeur de couleurActiveIsJ1 */
+    public void setCouleurActiveIsJ1(Boolean couleurActiveIsJ1) {
+        this.couleurActiveIsJ1 = couleurActiveIsJ1;
+    }
+
+    /** @return valeur de couleurOrdinateurIsJ1 */
+    public Boolean getCouleurOrdinateurIsJ1() {
+        return couleurOrdinateurIsJ1;
+    }
+
+    /** @param couleurOrdinateurIsJ1 nouvelle valeur de couleurOrdinateurIsJ1 */
+    public void setCouleurOrdinateurIsJ1(Boolean couleurOrdinateurIsJ1) {
+        this.couleurOrdinateurIsJ1 = couleurOrdinateurIsJ1;
+    }
+    
+    
+    
 }

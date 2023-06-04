@@ -76,8 +76,10 @@ public class EchangeurDeVue {
      * @param codeVue code de la vue à placer sur la scène courante
      * @param height 
      * @param width 
+     * @param garderEnMemoire 
      */
-    public static void echangerAvec(int codeVue, int height, int width) {
+    public static void echangerAvec(int codeVue, int height,
+                                    int width, boolean garderEnMemoire) {
         primaryStage.setHeight(height);
         primaryStage.setWidth(width);
         if (sceneCourante == null) {
@@ -87,8 +89,7 @@ public class EchangeurDeVue {
         }
 
         try {
-            Parent racine; // recevra le conteneur racine de la vue à afficher
-
+            Parent racine; // recevra le conteneur racine de la -vue à afficher
             if (cache.containsKey(codeVue)) {
 
                 /*
@@ -108,13 +109,15 @@ public class EchangeurDeVue {
                 racine = FXMLLoader.load(EchangeurDeVue.class.getResource(EnsembleDesVues.getNomVue(codeVue)));
 
                 // ajout de la vue à la table cache
-                cache.put(codeVue, racine);
+                if (garderEnMemoire) {
+                    cache.put(codeVue, racine);
+                }
             }
             sceneCourante.setRoot(racine);
         } catch (IOException erreur) {
 
             // problème lors de l'accès au fichier décrivant la vue
-            System.out.println("Echec du chargement de la vue de code " + codeVue);
+            System.out.println("Echec du chargement de la vue de code " + codeVue + " => " + erreur.getMessage());
         }
     }
     

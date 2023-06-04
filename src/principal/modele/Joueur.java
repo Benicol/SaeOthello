@@ -42,6 +42,16 @@ public class Joueur {
     public void decrementer() {
         this.score--;
     }
+
+    /** @param pseudo nouvelle valeur de pseudo */
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    /** @param score nouvelle valeur de score */
+    public void setScore(int score) {
+        this.score = score;
+    }
     
     
 }

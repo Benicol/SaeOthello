@@ -9,51 +9,51 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import principal.modele.Modele;
-import principal.modele.Theme;
 
 /** TODO comment class responsibility (SRP)
  * @author benji
  *
  */
-public class ControleurInterfaceMenuPrincipal {
+public class ControleurJeuMenu {
     
     @FXML
     private void initialize() {
-        Modele.setPalette(new Theme("#FFFFFF", "#000000"));
     }
     
     @FXML
-    void button2JoueursAppuyer(ActionEvent event) {
-        Modele.setMode1Joueur(false);
-        EchangeurDeVue.echangerAvec(2, 400, 800, false);
+    void reprendrePartiePressed(ActionEvent event) {
+        EchangeurDeVue.echangerAvec(1, 700, 600, false);
     }
     
     @FXML
-    void button1JoueursAppuyer(ActionEvent event) {
-        Modele.setMode1Joueur(true);
-        EchangeurDeVue.echangerAvec(2, 400, 800, false);
+    void redemarrerPressed(ActionEvent event) {
+        EchangeurDeVue.supprimerCache(1);
+        EchangeurDeVue.echangerAvec(1, 700, 600, true);
     }
     
     @FXML
-    void buttonChargerAppuyer(ActionEvent event) {
-        System.out.println("charger appuyer");
+    void sauvegarderPressed(ActionEvent event) {
+        EchangeurDeVue.echangerAvec(10, 400, 800, false);
     }
     
     @FXML
-    void buttonAideAppuyer(ActionEvent event) {
-        Modele.setDernierMenuOuvert(0);
+    void chargerPressed(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void aidePressed(ActionEvent event) {
+        Modele.setDernierMenuOuvert(5);
         EchangeurDeVue.echangerAvec(6, 700, 600, false);
     }
     
     @FXML
-    void buttonOptionsAppuyer(ActionEvent event) {
-        EchangeurDeVue.echangerAvec(9, 700, 600, false);
+    void menuPressed(ActionEvent event) {
+        EchangeurDeVue.supprimerCache(1);
+        EchangeurDeVue.echangerAvec(0, 700, 600, false);
     }
     
-    @FXML
-    void buttonQuitterAppuyer(ActionEvent event) {
-        System.exit(0);
-    }
+    
     
     @FXML
     void buttonEntered(MouseEvent event) {

@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurJeuMenu">
    <children>
       <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="MENU">
          <font>
@@ -19,7 +19,7 @@
             <Insets bottom="30.0" />
          </VBox.margin>
       </Text>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#reprendrePartiePressed" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
          <effect>
             <DropShadow />
          </effect>
@@ -40,7 +40,7 @@
             <Insets bottom="25.0" />
          </VBox.margin>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#redemarrerPressed" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
          <effect>
             <DropShadow />
          </effect>
@@ -58,7 +58,7 @@
             <Insets bottom="25.0" />
          </VBox.margin>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sauvegarderPressed" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
          <effect>
             <DropShadow />
          </effect>
@@ -76,7 +76,7 @@
             <Insets bottom="25.0" />
          </VBox.margin>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#chargerPressed" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
          <effect>
             <DropShadow />
          </effect>
@@ -94,7 +94,7 @@
             <Insets bottom="25.0" />
          </VBox.margin>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#aidePressed" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
          <effect>
             <DropShadow />
          </effect>
@@ -109,7 +109,7 @@
             </Text>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#menuPressed" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
          <effect>
             <DropShadow />
          </effect>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurReglesCommentJouer">
+   <children>
+      <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="600.0">
+         <VBox.margin>
+            <Insets bottom="-20.0" />
+         </VBox.margin>
+         <children>
+            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="4.0" text="COMMENT JOUER ?">
+               <font>
+                  <Font name="System Bold" size="60.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <Text lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En jeu, le joueur n'a que trois options : " textAlignment="JUSTIFY" underline="true" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" top="20.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1. Poser un jeton : Le joueur ne peut pas poser son jeton n'importe où ! Il DOIT pouvoir retourner des jetons adverses pour poser un nouveau jeton." textAlignment="JUSTIFY" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2. Passer son tour : si le joueur ne peut poser aucun jeton, il DOIT passer son tour. Mais il peut aussi passer son tour sans être bloqué. Attention, si les deux joueurs passent leur tour, la partie s'arrête !" textAlignment="JUSTIFY" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </Text>
+      <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. Acceder au menu (en haut à droite)" textAlignment="JUSTIFY" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les joueurs ont accès à deux modes de jeu :" textAlignment="JUSTIFY" underline="true" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" top="20.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1. Mode 2 joueurs : deux personnes jouent chacune leur tour sur le même ordinateur." textAlignment="JUSTIFY" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2. Mode 1 Joueur : le joueur affronte alors l'ordinateur. Il existe deux modes de difficulté, modifiable dans les options du menu principal." textAlignment="JUSTIFY" wrappingWidth="500.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#suivantPresse" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <graphic>
+            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="RETOUR">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+         </graphic>
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

@@ -8,9 +8,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurPseudo">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurSauvegarde">
    <children>
-      <Text fx:id="labelPseudo" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="Pseudo joueur 1">
+      <Text fx:id="labelPrincipal" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="sauvegarde">
          <font>
             <Font name="System Bold" size="96.0" />
          </font>
@@ -22,7 +22,7 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <TextField fx:id="entrer" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" onAction="#validerCliquer" prefHeight="65.0" prefWidth="442.0" promptText="Joueur 1" style="-fx-background-color: #EEEEEE; -fx-background-radius: 8px;">
+            <TextField fx:id="entrer" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" onAction="#sauvegarderCliquer" prefHeight="65.0" prefWidth="442.0" promptText="Nom Sauvegarde" style="-fx-background-color: #EEEEEE; -fx-background-radius: 8px;">
                <font>
                   <Font name="Agency FB" size="20.0" />
                </font>
@@ -32,7 +32,7 @@
             </TextField>
          </children>
       </HBox>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#validerCliquer" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rejouerPresser" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
          <effect>
             <DropShadow />
          </effect>
@@ -40,7 +40,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
          <graphic>
-            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="Valider">
+            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="SAUVEGARDER">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

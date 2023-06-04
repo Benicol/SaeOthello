@@ -1,5 +1,5 @@
 /*
- * ControleurInterfaceMenuPrincipal.java                                      3 Jun 2023
+ * ControleurRegles.java                                      4 Jun 2023
  * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
  */
 package principal;
@@ -8,51 +8,32 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import principal.modele.Modele;
-import principal.modele.Theme;
 
 /** TODO comment class responsibility (SRP)
  * @author benji
  *
  */
-public class ControleurInterfaceMenuPrincipal {
+public class ControleurInterfaceMenuOptions {
     
     @FXML
-    private void initialize() {
-        Modele.setPalette(new Theme("#FFFFFF", "#000000"));
+    private Text textDifficulte;
+    
+    @FXML
+    void switchDifficulte(ActionEvent event) {
+        if (Modele.isMode1JoueurDifficile()) {
+            textDifficulte.setText("MODE DIFFICILE : OFF");
+            Modele.setMode1JoueurDifficile(false);
+        } else {
+            textDifficulte.setText("MODE DIFFICILE : ON");
+            Modele.setMode1JoueurDifficile(true);
+        }
     }
-    
+
     @FXML
-    void button2JoueursAppuyer(ActionEvent event) {
-        Modele.setMode1Joueur(false);
-        EchangeurDeVue.echangerAvec(2, 400, 800, false);
-    }
-    
-    @FXML
-    void button1JoueursAppuyer(ActionEvent event) {
-        Modele.setMode1Joueur(true);
-        EchangeurDeVue.echangerAvec(2, 400, 800, false);
-    }
-    
-    @FXML
-    void buttonChargerAppuyer(ActionEvent event) {
-        System.out.println("charger appuyer");
-    }
-    
-    @FXML
-    void buttonAideAppuyer(ActionEvent event) {
-        Modele.setDernierMenuOuvert(0);
-        EchangeurDeVue.echangerAvec(6, 700, 600, false);
-    }
-    
-    @FXML
-    void buttonOptionsAppuyer(ActionEvent event) {
-        EchangeurDeVue.echangerAvec(9, 700, 600, false);
-    }
-    
-    @FXML
-    void buttonQuitterAppuyer(ActionEvent event) {
-        System.exit(0);
+    void menuPressed(ActionEvent event) {
+        EchangeurDeVue.echangerAvec(0, 700, 600, false);
     }
     
     @FXML
@@ -74,5 +55,4 @@ public class ControleurInterfaceMenuPrincipal {
                 + beforeStyle.substring(premierePointVirgule,
                                                 beforeStyle.length()));
     }
-
 }

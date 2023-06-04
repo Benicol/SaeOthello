@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import principal.modele.Modele;
 
@@ -15,14 +16,42 @@ import principal.modele.Modele;
  * @author benji
  *
  */
-public class ControleurEgalite {
+public class ControleurVictoire {
     
+    @FXML
+    private Text aGagneText;
+
+    @FXML
+    private Text felDefText;
+    
+    @FXML
+    private Text pseudoVainqueur;
+
     @FXML
     private Text scores;
     
     @FXML
     private void initialize() {
-        scores.setText(Modele.getJoueur1().getScore() + " à " + Modele.getJoueur2().getScore());
+        String couleurGagnant;
+        pseudoVainqueur.setText(Modele.getPseudoVainqueur());
+        if (Modele.getPseudoVainqueur() == Modele.getJoueur1().getPseudo()) {
+            scores.setText(Modele.getJoueur1().getScore() + " à " 
+                           + Modele.getJoueur2().getScore());
+            couleurGagnant = Modele.getPalette().getCouleurJ1();
+        } else {
+            scores.setText(Modele.getJoueur2().getScore() + " à " 
+                           + Modele.getJoueur1().getScore());
+            couleurGagnant = Modele.getPalette().getCouleurJ2();
+        }
+        
+        if (Modele.isMode1Joueur() && couleurGagnant == 
+                Modele.getPalette().getCouleurOrdinateur()) {
+            felDefText.setText("Dommage...");
+        }
+        aGagneText.setFill(Paint.valueOf(couleurGagnant));
+        felDefText.setFill(Paint.valueOf(couleurGagnant));
+        pseudoVainqueur.setFill(Paint.valueOf(couleurGagnant));
+        scores.setFill(Paint.valueOf(couleurGagnant));
     }
     
     @FXML
