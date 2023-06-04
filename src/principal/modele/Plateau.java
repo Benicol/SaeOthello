@@ -190,6 +190,7 @@ public class Plateau {
     private Stack<int[]> jetonsSurCheminRecursif(int[] coord, int[] offSet, boolean couleurCherche) {
         int[] newCoord = {coord[0] + offSet[0], coord[1] + offSet[1]};
         int[] errCoord = {-1};
+
         Stack<int[]> chemain = new Stack<int[]>();
         Stack<int[]> chemainErr = new Stack<int[]>();
         chemainErr.add(errCoord);

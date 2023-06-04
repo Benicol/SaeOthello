@@ -5,8 +5,7 @@
 package principal.modele;
 
 /** TODO comment class responsibility (SRP)
- * @author benjamin.nicol
- *
+ * @author Groupe32
  */
 public class Joueur {
     
@@ -40,6 +39,9 @@ public class Joueur {
     
     /** @param valeur */
     public void decrementer() {
+    	if (score < 1) {
+    		throw new IllegalArgumentException("Le score ne peux pas être négatif");
+    	}
         this.score--;
     }
 

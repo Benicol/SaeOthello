@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 
 import principal.modele.Theme;
 
-/** TODO comment class responsibility (SRP)
- * @author benji
- *
+/** 
+ * méthode de test de la classe Theme.java
+ * @author groupe32
  */
 class TestSetCouleur {
     Theme test = new Theme("#FFFFFF", "#000000");
@@ -44,5 +44,24 @@ class TestSetCouleur {
         assertEquals("#000000", test.getCouleurOppose("#FFFFFF"));
         assertEquals("#FFFFFF", test.getCouleurOppose("#000000"));
     }
+
+    /**
+     * Test method for {@link principal.modele.SetCouleur#getCouleurActive(javafx.scene.paint.Paint)}.
+     */
+    @Test
+    void testGetCouleurActive() {
+        assertEquals("#000000", test.getCouleurActive());
+        assertNotEquals("#FFFFFF", test.getCouleurActive());
+    }
+
+    /**
+     * Test method for {@link principal.modele.SetCouleur#switchCouleurActive(javafx.scene.paint.Paint)}.
+     */
+    @Test
+    void testSwitchCouleurActive() {
+        assertDoesNotThrow(() -> test.switchCouleurActive());
+    }
+
+
 
 }

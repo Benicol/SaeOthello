@@ -35,17 +35,17 @@ public class Jeton {
         this.couleurJ1 = couleurJ1;
     }
 
-    /** @return valeur de affichier */
+    /** @return valeur de afficher */
     public boolean isAfficher() {
         return afficher;
     }
 
-    /** @param affichier nouvelle valeur de affichier */
+    /** @param afficher nouvelle valeur de afficher */
     public void devientAfficher() {
         this.afficher = true;
     }
     
-    /** @param affichier nouvelle valeur de affichier */
+    /** @param afficher nouvelle valeur de afficher */
     public void switchCouleurJ1() {
         couleurJ1 = !couleurJ1;
     }
