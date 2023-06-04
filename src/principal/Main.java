@@ -23,7 +23,7 @@ public class Main extends Application {
          * création d'un chargeur de code FXML et chargement de la vue de l'application
          */
         FXMLLoader chargeurFXML = new FXMLLoader();
-        chargeurFXML.setLocation(getClass().getResource("VueJeu.fxml"));
+        chargeurFXML.setLocation(getClass().getResource("InterfaceMenuPrincipal.fxml"));
         Parent racine;
         try {
             racine = chargeurFXML.load();
@@ -34,7 +34,9 @@ public class Main extends Application {
             primaryStage.setTitle("Othello");
             primaryStage.setHeight(700);
             primaryStage.setWidth(600);
+            EchangeurDeVue.setSceneCourante(scene);
             primaryStage.setScene(scene);
+            EchangeurDeVue.setStage(primaryStage);
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();

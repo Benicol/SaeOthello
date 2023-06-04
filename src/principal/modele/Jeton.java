@@ -49,6 +49,11 @@ public class Jeton {
     public void switchCouleurJ1() {
         couleurJ1 = !couleurJ1;
     }
+
+    /** @param afficher nouvelle valeur de afficher */
+    public void setAfficher(boolean afficher) {
+        this.afficher = afficher;
+    }
     
     
 }

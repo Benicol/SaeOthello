@@ -7,26 +7,21 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurVictoire">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurEgalite">
    <children>
-      <Text fx:id="felDefText" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="FELICITATIONS !">
+      <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="EGALITÉ !">
          <font>
             <Font name="System Bold" size="64.0" />
          </font>
       </Text>
-      <Text fx:id="pseudoVainqueur" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="[insérer pseudo]">
+      <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Pas de vainqueur pour cette fois..." textAlignment="CENTER" wrappingWidth="600.0">
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Text>
-      <Text fx:id="aGagneText" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="A GAGNÉ ">
+      <Text fx:id="scores" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="[score J1] à [score J2]">
          <font>
-            <Font name="System Bold" size="64.0" />
-         </font>
-      </Text>
-      <Text fx:id="scores" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="[score gagnant] à [score perdant]">
-         <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Text>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
@@ -76,7 +71,4 @@
          </VBox.margin>
       </HBox>
    </children>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
 </VBox>

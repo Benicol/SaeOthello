@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" spacing="50.0" style="-fx-background-color: #75BB99;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.ControleurSauvegarde">
+   <children>
+      <Text fx:id="labelPrincipal" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="SAUVEGARDER">
+         <font>
+            <Font name="System Bold" size="72.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="-150.0" />
+         </VBox.margin>
+      </Text>
+      <Label fx:id="messageErreur" opacity="0.0" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="entrer" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" onAction="#sauvegarderCliquer" prefHeight="65.0" prefWidth="442.0" promptText="Nom Sauvegarde" style="-fx-background-color: #EEEEEE; -fx-background-radius: 8px;">
+               <font>
+                  <Font name="Agency FB" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="-20.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sauvegarderCliquer" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="SAUVEGARDER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="retourCliquer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#retourCliquer" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <Text fx:id="retourCliquer" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="RETOUR">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
