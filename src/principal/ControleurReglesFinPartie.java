@@ -18,7 +18,7 @@ public class ControleurReglesFinPartie {
     @FXML
     void suivantPresse(ActionEvent event) {
         System.out.println("SUIVANT!");
-        EchangeurDeVue.echangerAvec(8, 700, 600, false);
+        EchangeurDeVue.echangerAvec(8, false);
     }
     
     @FXML

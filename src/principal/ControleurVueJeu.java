@@ -130,7 +130,7 @@ public class ControleurVueJeu {
     @FXML
     void menuPresse(ActionEvent event) {
         if (!Modele.estTourOrdinateur()) {
-            EchangeurDeVue.echangerAvec(5, 700, 600, false);
+            EchangeurDeVue.echangerAvec(5, false);
         }
     }
     

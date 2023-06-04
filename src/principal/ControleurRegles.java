@@ -18,7 +18,7 @@ public class ControleurRegles {
     @FXML
     void suivantPresse(ActionEvent event) {
         System.out.println("SUIVANT!");
-        EchangeurDeVue.echangerAvec(7, 700, 600, false);
+        EchangeurDeVue.echangerAvec(7, false);
     }
     
     @FXML

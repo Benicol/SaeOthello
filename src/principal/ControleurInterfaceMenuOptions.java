@@ -33,7 +33,7 @@ public class ControleurInterfaceMenuOptions {
 
     @FXML
     void menuPressed(ActionEvent event) {
-        EchangeurDeVue.echangerAvec(0, 700, 600, false);
+        EchangeurDeVue.echangerAvec(0, false);
     }
     
     @FXML

@@ -46,6 +46,9 @@ public class EnsembleDesVues {
     /** Code de la vue de victoire */
     public static final int VUE_SAUVEGARDE = 10;
     
+    /** Code de la vue de victoire */
+    public static final int VUE_CHARGER = 11;
+    
 
     /**
      * Tableau contenant les noms des fichiers fxml des différentes vues 75 de
@@ -62,7 +65,8 @@ public class EnsembleDesVues {
                                                    "ReglesFinPartie.fxml",
                                                    "ReglesCommentJouer.fxml",
                                                    "InterfaceMenuOptions.fxml",
-                                                   "Sauvegarde.fxml"};
+                                                   "Sauvegarde.fxml",
+                                                   "Charger.fxml"};
 
     /**
      * Renvoie le nom du fichier fxml contenant la vue dont le code est donné en

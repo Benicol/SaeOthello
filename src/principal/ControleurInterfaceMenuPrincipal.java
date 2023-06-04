@@ -25,29 +25,30 @@ public class ControleurInterfaceMenuPrincipal {
     @FXML
     void button2JoueursAppuyer(ActionEvent event) {
         Modele.setMode1Joueur(false);
-        EchangeurDeVue.echangerAvec(2, 400, 800, false);
+        EchangeurDeVue.echangerAvec(2, false);
     }
     
     @FXML
     void button1JoueursAppuyer(ActionEvent event) {
         Modele.setMode1Joueur(true);
-        EchangeurDeVue.echangerAvec(2, 400, 800, false);
+        EchangeurDeVue.echangerAvec(2, false);
     }
     
     @FXML
     void buttonChargerAppuyer(ActionEvent event) {
-        System.out.println("charger appuyer");
+        Modele.setDernierMenuOuvert(0);
+        EchangeurDeVue.echangerAvec(11, false);
     }
     
     @FXML
     void buttonAideAppuyer(ActionEvent event) {
         Modele.setDernierMenuOuvert(0);
-        EchangeurDeVue.echangerAvec(6, 700, 600, false);
+        EchangeurDeVue.echangerAvec(6, false);
     }
     
     @FXML
     void buttonOptionsAppuyer(ActionEvent event) {
-        EchangeurDeVue.echangerAvec(9, 700, 600, false);
+        EchangeurDeVue.echangerAvec(9, false);
     }
     
     @FXML

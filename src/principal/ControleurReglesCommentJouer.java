@@ -19,7 +19,7 @@ public class ControleurReglesCommentJouer {
     @FXML
     void suivantPresse(ActionEvent event) {
         System.out.println("SUIVANT!");
-        EchangeurDeVue.echangerAvec(Modele.getDernierMenuOuvert(), 700, 600, false);
+        EchangeurDeVue.echangerAvec(Modele.getDernierMenuOuvert(), false);
     }
     
     @FXML

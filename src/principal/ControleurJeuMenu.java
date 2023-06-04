@@ -22,35 +22,36 @@ public class ControleurJeuMenu {
     
     @FXML
     void reprendrePartiePressed(ActionEvent event) {
-        EchangeurDeVue.echangerAvec(1, 700, 600, false);
+        EchangeurDeVue.echangerAvec(1, false);
     }
     
     @FXML
     void redemarrerPressed(ActionEvent event) {
         EchangeurDeVue.supprimerCache(1);
-        EchangeurDeVue.echangerAvec(1, 700, 600, true);
+        EchangeurDeVue.echangerAvec(1, true);
     }
     
     @FXML
     void sauvegarderPressed(ActionEvent event) {
-        EchangeurDeVue.echangerAvec(10, 400, 800, false);
+        EchangeurDeVue.echangerAvec(10, false);
     }
     
     @FXML
     void chargerPressed(ActionEvent event) {
-
+        Modele.setDernierMenuOuvert(5);
+        EchangeurDeVue.echangerAvec(11, false);
     }
     
     @FXML
     void aidePressed(ActionEvent event) {
         Modele.setDernierMenuOuvert(5);
-        EchangeurDeVue.echangerAvec(6, 700, 600, false);
+        EchangeurDeVue.echangerAvec(6, false);
     }
     
     @FXML
     void menuPressed(ActionEvent event) {
         EchangeurDeVue.supprimerCache(1);
-        EchangeurDeVue.echangerAvec(0, 700, 600, false);
+        EchangeurDeVue.echangerAvec(0, false);
     }
     
     

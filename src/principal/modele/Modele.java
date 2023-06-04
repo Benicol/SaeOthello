@@ -164,12 +164,12 @@ public class Modele {
         EchangeurDeVue.supprimerCache(1);
         if (Modele.getJoueur1().getScore() > Modele.getJoueur2().getScore()) {
             Modele.setPseudoVainqueur(Modele.getJoueur1().getPseudo());
-            EchangeurDeVue.echangerAvec(4, 525, 900, false);
+            EchangeurDeVue.echangerAvec(4, false);
         } else if (Modele.getJoueur1().getScore() < Modele.getJoueur2().getScore()) {
             Modele.setPseudoVainqueur(Modele.getJoueur2().getPseudo());
-            EchangeurDeVue.echangerAvec(4, 525, 900, false);
+            EchangeurDeVue.echangerAvec(4, false);
         } else {
-            EchangeurDeVue.echangerAvec(3, 525, 900, false);
+            EchangeurDeVue.echangerAvec(3, false);
         }
     }
     

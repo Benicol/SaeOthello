@@ -4,11 +4,18 @@
  */
 package principal;
 
+import principal.modele.Modele;
 import principal.modele.Sauvegarde;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -20,21 +27,26 @@ import javafx.scene.text.Text;
  * @author benji
  *
  */
-public class ControleurSauvegarde {
+public class ControleurCharger {
     
-    @FXML
-    private Label messageErreur;
+    private Sauvegarde[] sauvegardes;
 
     @FXML
-    private void initialize() {
+    private void initialize() throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("sauvegardes.txt"));
+        String line;
+        int nbSauvegarde = 0;
+        while ((line = br.readLine()) != null) {
+            nbSauvegarde++;
+        }
+        sauvegardes = new Sauvegarde[nbSauvegarde];
+        br = new BufferedReader(new FileReader("sauvegardes.txt"));
+        for (int i = 0; i < nbSauvegarde; i++) {
+            sauvegardes[i].importer();
+        }
+        System.out.println(nbSauvegarde);
     }
-
-    @FXML
-    private TextField entrer;
-
-    @FXML
-    private Text labelPrincipal;
-
+    
     @FXML
     void buttonEntered(MouseEvent event) {
         Button boutton = (Button) event.getSource();
@@ -52,25 +64,23 @@ public class ControleurSauvegarde {
         boutton.setStyle(
                 "-fx-background-color: #009E6D;" + beforeStyle.substring(premierePointVirgule, beforeStyle.length()));
     }
+    
+    @FXML
+    private ChoiceBox<String> choiceBox;
 
     @FXML
-    void sauvegarderCliquer(ActionEvent event) {
-        if (!entrer.getText().matches("^[a-zA-Z0-9 ]*$")) {
-            messageErreur.setText("Veuillez uniquement utiliser des lettres et chiffres (pas d'espace)");
-            messageErreur.setOpacity(1);
-        } else if (entrer.getText().length() > 15){
-            messageErreur.setText("Votre Pseudonyme doit faire moins de 15 caractères");
-            messageErreur.setOpacity(1);
-        } else {
-            Sauvegarde nouvelleSauvegarde = new Sauvegarde(entrer.getText());
-            nouvelleSauvegarde.enregistrer();
-            EchangeurDeVue.echangerAvec(5, false);
-        }
+    void chargerPresser(ActionEvent event) {
+        
     }
     
     @FXML
-    void retourCliquer(ActionEvent event) {
-        EchangeurDeVue.echangerAvec(5, false);
+    void supprimerPresse(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void retourPresser(ActionEvent event) {
+        EchangeurDeVue.echangerAvec(Modele.getDernierMenuOuvert(), false);
     }
 
 }

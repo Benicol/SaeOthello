@@ -76,11 +76,11 @@ public class ControleurVictoire {
     
     @FXML
     void rejouerPresser(ActionEvent event) {
-        EchangeurDeVue.echangerAvec(1, 700, 600, false);
+        EchangeurDeVue.echangerAvec(1, false);
     }
     
     @FXML
     void menuPresser(ActionEvent event) {
-        EchangeurDeVue.echangerAvec(0, 700, 600, false);
+        EchangeurDeVue.echangerAvec(0, false);
     }
 }

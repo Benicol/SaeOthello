@@ -78,10 +78,7 @@ public class EchangeurDeVue {
      * @param width 
      * @param garderEnMemoire 
      */
-    public static void echangerAvec(int codeVue, int height,
-                                    int width, boolean garderEnMemoire) {
-        primaryStage.setHeight(height);
-        primaryStage.setWidth(width);
+    public static void echangerAvec(int codeVue, boolean garderEnMemoire) {
         if (sceneCourante == null) {
 
             // pas de scène courante : impossible de modifier sa vue

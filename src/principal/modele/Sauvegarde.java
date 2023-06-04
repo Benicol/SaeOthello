@@ -60,4 +60,11 @@ public class Sauvegarde {
             e.printStackTrace();
         }
     }
+
+    /** TODO comment method role
+     * 
+     */
+    public void importer() {
+        // TODO Auto-generated method stub
+    }
 }

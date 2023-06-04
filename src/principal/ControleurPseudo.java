@@ -82,7 +82,7 @@ public class ControleurPseudo {
                     }
                     entrer.setPromptText("Joueur 2");
                     entrer.setText("");
-                    labelPseudo.setText("Pseudo joueur 2");
+                    labelPseudo.setText("Joueur 2");
                     labelPseudo.requestFocus();
                 } else {
                     if (entrer.getText().length() == 0) {
@@ -111,7 +111,7 @@ public class ControleurPseudo {
                     Modele.getJoueur1().setPseudo(pseudo2);
                     Modele.getJoueur2().setPseudo(pseudo1);
                 }
-                EchangeurDeVue.echangerAvec(1, 700, 600, true);
+                EchangeurDeVue.echangerAvec(1, true);
             }
             phaseDeux = true;
         }
