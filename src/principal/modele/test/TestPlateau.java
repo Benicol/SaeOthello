@@ -14,13 +14,13 @@ import principal.modele.Theme;
 
 class TestPlateau {
 
-	Plateau plateauTest = new Plateau(new Theme("#FFFFFF", "#000000"));
+	Plateau plateauTest = new Plateau();
 
 	int[] coordonneTest = {0,0} ;
 
 	@Test
 	void testPlateau() {
-		assertDoesNotThrow(() -> new Theme("#FFFFFF", "#000000"));
+		assertDoesNotThrow(() -> new Plateau());
 	}
 
 	@Test
