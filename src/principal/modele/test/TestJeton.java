@@ -102,5 +102,16 @@ class TestJeton {
         assertTrue(jeton1.isCouleurJ1());
         assertDoesNotThrow(() -> jeton1.switchCouleurJ1());
     }
+    
+    /**
+     * Test method for {@link principal.modele.Jeton#setAfficher(boolean)}.
+     */
+    @Test
+    void testSetAfficher() {
+        assertDoesNotThrow(() -> jeton1.setAfficher(true));
+        assertTrue(jeton1.isAfficher());
+        assertDoesNotThrow(() -> jeton2.setAfficher(false));
+        assertFalse(jeton2.isAfficher());
+    }
 
 }

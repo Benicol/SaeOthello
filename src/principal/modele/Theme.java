@@ -6,7 +6,7 @@ package principal.modele;
 
 
 /** TODO comment class responsibility (SRP)
- * @author benji
+ * @author groupe32
  *
  */
 public class Theme {

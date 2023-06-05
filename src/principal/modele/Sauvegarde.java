@@ -9,7 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /** TODO comment class responsibility (SRP)
- * @author benji
+ * @author groupe32
  *
  */
 public class Sauvegarde {
