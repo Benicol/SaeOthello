@@ -8,9 +8,9 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/** TODO comment class responsibility (SRP)
- * @author groupe32
- *
+/** 
+ * TODO comment class responsibility (SRP)
+ * @author groupe 32
  */
 public class Sauvegarde {
     

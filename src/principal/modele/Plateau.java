@@ -8,9 +8,9 @@ import java.util.Stack;
 
 import javafx.scene.paint.Paint;
 
-/** TODO comment class responsibility (SRP)
+/** 
+ * TODO comment class responsibility (SRP)
  * @author groupe 32
- *
  */
 public class Plateau {
     
@@ -20,8 +20,9 @@ public class Plateau {
     /* Matrice qui représente le plateau de jeu */
     private Jeton[][] matrice;
     
-    /** TODO comment intial state
-     * 
+    /** 
+     * Constructeur du plateau de jeu, une matrice de 8 cases par 8 cases, 
+     * chacune contenant un jeton.
      */
     public Plateau () {
         this.matrice = new Jeton[TAILLE][TAILLE];
@@ -32,10 +33,11 @@ public class Plateau {
         }
     }
     
-    /** TODO comment method role
-     * @param x 
-     * @param y 
-     * @param couleur 
+    /**
+     * Permet de rendre visible un jeton dans une case précise du plateau.
+     * @param x les coordonnées en x du jeton
+     * @param y les coordonnées en y du jeton
+     * @param couleur la couleur que doit prendre ce jeton
      */
     public void jetonExiste(int x, int y, Paint couleur) {
         this.matrice[x][y].devientAfficher();
@@ -44,12 +46,16 @@ public class Plateau {
         }
     }
     
+    /* méthode permettant de s'assurer qu'une coordonnée est valide, 
+     * c'est-à-dire que ses valeurs en x et en y sont comprises entre 0 et 7 */
     private boolean isCoordValide(int[] coord) {
         return coord[0] >= 0 && coord[0] < TAILLE &&
                coord[1] >= 0 && coord[1] < TAILLE;
     }
     
-    /** TODO comment method role
+    /** 
+     * 
+     * 
      * @return TODO
      */
     public int[][] chercherPlacementsPossible() {
