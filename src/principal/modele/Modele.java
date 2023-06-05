@@ -1,5 +1,5 @@
 /*
- * Modele.java                                      3 Jun 2023
+ * Modele.java                                         30 mai 2023
  * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
  */
 package principal.modele;
@@ -15,33 +15,50 @@ import javafx.scene.paint.Paint;
  */
 public class Modele {
     
+    /* DECLARATION DES VARIABLES */
+    /* Permet de stocker en mémoire le dernier menu ouvert par le joueur */
     private static int dernierMenuOuvert = 0;
     
+    /* Permet de savoir si la partie vient d'une charge */
     private static boolean partieCharge = false;
     
+    /* Permet de stocker en mémoire le type de partie (1 joueur ou 2 joueurs) */
     private static boolean mode1Joueur;
     
+    /* Permet de stocker en mémoire la difficulté choisie en mode 1 joueur */
     private static boolean mode1JoueurDifficile = false;
     
+    /* Permet de stocker en mémoire si le dernier joueur a déjà passé son tour */
     private static boolean joueurPrecedentPasser = false;
 
+    /* Permet de stocker en mémoire les informations concernant le joueur 1 */
     private static Joueur joueur1 = new Joueur(null);
 
+    /* Permet de stocker en mémoire les informations concernant le joueur 2 */
     private static Joueur joueur2 = new Joueur(null);
     
+    /* Permet de stocker en mémoire le pseudo du joueur ayant gagné la partie */
     private static String PseudoVainqueur;
     
+    /* Permet de stocker en mémoire le thème de couleur choisi */
     private static Theme palette;
     
+    /* Permet de stocker en mémoire l'état du plateau de jeu */
     private static Plateau plateauJeu = new Plateau();
     
+    /* Permet de connaître l'état des cercles matérialisant les jetons FIXME : je dirais pas de la merde ?*/
     private static Circle[][] cercles;
     
+    /* Permet de connaître l'état des boutons sur chaque case du plateau */
     private static Button[][] buttons;
     
 
 
-    /** @return valeur de palette */
+    /** 
+     * Permet d'obtenir les informations concernant les couleurs utilisés pour 
+     * cette partie.
+     * @return valeur de palette  
+     */
     public static Theme getPalette() {
         return palette;
     }
