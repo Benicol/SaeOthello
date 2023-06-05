@@ -15,9 +15,9 @@ public class Theme {
     
     private String couleurJ2;
     
-    private Boolean couleurActiveIsJ1;
+    private boolean couleurActiveIsJ1;
     
-    private Boolean couleurOrdinateurIsJ1;
+    private boolean couleurOrdinateurIsJ1;
     
     /** TODO comment intial state
      * @param couleurJ1
@@ -93,7 +93,7 @@ public class Theme {
     }
 
     /** @param couleurActiveIsJ1 nouvelle valeur de couleurActiveIsJ1 */
-    public void setCouleurActiveIsJ1(Boolean couleurActiveIsJ1) {
+    public void setCouleurActiveIsJ1(boolean couleurActiveIsJ1) {
         this.couleurActiveIsJ1 = couleurActiveIsJ1;
     }
 
@@ -101,12 +101,5 @@ public class Theme {
     public Boolean getCouleurOrdinateurIsJ1() {
         return couleurOrdinateurIsJ1;
     }
-
-    /** @param couleurOrdinateurIsJ1 nouvelle valeur de couleurOrdinateurIsJ1 */
-    public void setCouleurOrdinateurIsJ1(Boolean couleurOrdinateurIsJ1) {
-        this.couleurOrdinateurIsJ1 = couleurOrdinateurIsJ1;
-    }
-    
-    
     
 }
