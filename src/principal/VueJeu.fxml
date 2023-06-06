@@ -49,7 +49,7 @@
                         <Font name="Consolas Bold" size="24.0" />
                      </font>
                      <padding>
-                        <Insets top="-4.0" />
+                        <Insets top="-2.0" />
                      </padding>
                   </TextField>
                </children>
@@ -83,7 +83,7 @@
                         <Font name="Consolas Bold" size="24.0" />
                      </font>
                      <padding>
-                        <Insets top="-4.0" />
+                        <Insets top="-2.0" />
                      </padding>
                   </TextField>
                </children>

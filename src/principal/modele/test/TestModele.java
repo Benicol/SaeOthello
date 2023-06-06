@@ -28,10 +28,10 @@ class TestModele {
 	private Plateau plateau3;
 	
 	/**
-     * Initialisation de plusieurs object Joueur
+     * Initialisation de plusieurs object Joueur,Theme et Plateau pour initialiser le modele
      */
 	@BeforeEach 
-    void InitialiserJeton(){
+    void InitialiserModele(){
     	theme1 = new Theme("#000000","#FFFFFF");
     	Modele.setPalette(theme1);
     	

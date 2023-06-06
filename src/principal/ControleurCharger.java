@@ -44,8 +44,7 @@ public class ControleurCharger {
     /* Au lancement de cette vue, toutes les parties qu'il est possible de charger */
     @FXML
     private void initialize() throws IOException {
-        updatePropositions();
-        
+        updatePropositions(); 
     }
 
     /* 

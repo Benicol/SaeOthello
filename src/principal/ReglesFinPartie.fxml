@@ -37,7 +37,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="➔ Plus personne ne peut jouer :                                   La partie s'arrête alors immédiatement, le vainqueur est le joueur ayant le plus de jeton de sa couleur sur le plateau." textAlignment="JUSTIFY" wrappingWidth="500.0">
+      <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="➔ Plus personne ne peut jouer :                                   La partie s'arrête alors immédiatement, le vainqueur est le joueur ayant le plus de jetons de sa couleur sur le plateau." textAlignment="JUSTIFY" wrappingWidth="500.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -45,7 +45,7 @@
             <Insets />
          </VBox.margin>
       </Text>
-      <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="➔ Les deux joueurs passent leur tour à la suite :         La partie s'arrête à nouveau immédiatement, et le vainqueur est toujours le joueur ayant le plus de jeton de sa couleur sur le plateau." textAlignment="JUSTIFY" wrappingWidth="500.0">
+      <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="➔ Les  joueurs passent leur tour consécutivement : La partie s'arrête immédiatement, et le vainqueur est toujours le joueur ayant le plus de jetons de sa couleur sur le plateau." textAlignment="JUSTIFY" wrappingWidth="500.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
