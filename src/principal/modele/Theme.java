@@ -88,7 +88,7 @@ public class Theme {
     }
 
     /** @return valeur de couleurActiveIsJ1 */
-    public Boolean getCouleurActiveIsJ1() {
+    public boolean getCouleurActiveIsJ1() {
         return couleurActiveIsJ1;
     }
 
@@ -98,7 +98,7 @@ public class Theme {
     }
 
     /** @return valeur de couleurOrdinateurIsJ1 */
-    public Boolean getCouleurOrdinateurIsJ1() {
+    public boolean getCouleurOrdinateurIsJ1() {
         return couleurOrdinateurIsJ1;
     }
     
