@@ -19,7 +19,7 @@
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../Assets/Group%201.png" />
+                              <Image url="@Group1.png" />
                            </image>
                         </ImageView>
                      </graphic></Button>
