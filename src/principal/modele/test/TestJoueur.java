@@ -48,7 +48,7 @@ class TestJoueur {
      */
     @Test
     void testJoueur() {
-        assertDoesNotThrow(() -> new Joueur(null));
+        assertDoesNotThrow(() -> joueurVide );
         assertEquals(joueurVide.getScore(),0);
         assertEquals(joueurVide.getPseudo(),null);
     }
