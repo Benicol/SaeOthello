@@ -9,7 +9,10 @@ import java.util.Stack;
 import javafx.scene.paint.Paint;
 
 /** 
- * TODO comment class responsibility (SRP)
+ * Un plateau représente la zone de jeu pour l'Othello. Il est divisé en 
+ * 64 cases (8x8). Sur chacune des cases, un jeton peut être posé 
+ * (si et seulement si la pose de ce jeton permet de retourner des 
+ * jetons adverses).
  * @author groupe 32
  */
 public class Plateau {
@@ -54,9 +57,10 @@ public class Plateau {
     }
     
     /** 
-     * 
-     * 
-     * @return TODO
+     * Méthode permettant de trouver toutes les cases sur lesquels il est 
+     * possible de poser un nouveau jeton  en fonction des jetons déjà placés.
+     * @return un tableau de coordonnées qui correspondent à tous les 
+     * placements possibles.
      */
     public int[][] chercherPlacementsPossible() {
         Stack<int[]> coordsPossible = new Stack<int[]>();
@@ -123,10 +127,12 @@ public class Plateau {
         return resultat;
     }
     
-    /** TODO comment method role
-     * @return
+    /** 
+     * Trouve la fin d'une ligne de jeton de façon récursive.
+     * @return des coordonnées positives de là où un jeton est plaçable
+     * et négatives sinon.
      */
-    private int[] trouveFinLigneRecursif(int[] coord, int[] offSet, boolean couleurCherche) { //TODO : changer nom
+    private int[] trouveFinLigneRecursif(int[] coord, int[] offSet, boolean couleurCherche) {
         int[] newCoord = {coord[0] + offSet[0], coord[1] + offSet[1]};
         if (!isCoordValide(newCoord)) {
             newCoord[0] = -1;
@@ -144,11 +150,13 @@ public class Plateau {
         }
     }
     
-    /** TODO comment method role
-     * @param abscisse
-     * @param ordonnee
-     * @param retourneModel 
-     * @return TODO : modifier
+    /**
+     * Permet de trouver tous les jetons à retourner (encadrés par 
+     * deux jetons de la couleur adverse) en fonction du jeton que l'on place.
+     * @param abscisse les coordonnées en x du jeton à poser
+     * @param ordonnee les coordonnées en y du jeton à poser
+     * @return une liste de coordonnées de tous les jetons à retourner sur la
+     * ligne.
      */
     public int[][] retournerJetons(int abscisse, int ordonnee) {
         Stack<int[]> coordsATourner = new Stack<int[]>();
@@ -190,39 +198,41 @@ public class Plateau {
         return resultat;
     }
     
-    /** TODO comment method role
-     * @return
+    /*
+     * Renvoi les jetons situé entre deux jetons adverses de façon récursive.
      */
     private Stack<int[]> jetonsSurCheminRecursif(int[] coord, int[] offSet, boolean couleurCherche) {
         int[] newCoord = {coord[0] + offSet[0], coord[1] + offSet[1]};
         int[] errCoord = {-1};
 
-        Stack<int[]> chemain = new Stack<int[]>();
-        Stack<int[]> chemainErr = new Stack<int[]>();
-        chemainErr.add(errCoord);
+        Stack<int[]> chemin = new Stack<int[]>();
+        Stack<int[]> cheminErr = new Stack<int[]>();
+        cheminErr.add(errCoord);
         if (!isCoordValide(newCoord) || 
             !matrice[newCoord[0]][newCoord[1]].isAfficher()) {
-            return chemainErr;
+            return cheminErr;
         } else if (matrice[newCoord[0]][newCoord[1]].isCouleurJ1() == 
                                                                couleurCherche) {
-            chemain.add(coord);
+            chemin.add(coord);
             Stack<int[]> tmp = jetonsSurCheminRecursif(newCoord, offSet, couleurCherche);
             if (tmp.peek()[0] == -1) {
-                return chemainErr;
+                return cheminErr;
             }
-            chemain.addAll(tmp);
-            return chemain;
+            chemin.addAll(tmp);
+            return chemin;
             
         } else {
-            chemain.add(coord);
-            return chemain;
+            chemin.add(coord);
+            return chemin;
         }
     }
 
-    /** TODO comment method role
-     * @param rechercher 
-     * @return les coordonees [x, y] du jeton chercher si il est trouvé, sinon
-     * [-1, -1]
+    /** 
+     * Trouve les coordonnées d'un objet jeton une fois celui-ci placé
+     * sur le plateau de jeu.
+     * @param rechercher le jeton dont on souhaite connaître les coordonnées.
+     * @return les coordonnées [x, y] du jeton cherché s'il est trouvé, 
+     * [-1, -1] sinon.
      */
     public int[] trouveJetonMatrice(Jeton rechercher) {
         int[] resultat = {-1, -1};
@@ -237,8 +247,10 @@ public class Plateau {
         return resultat;
     }
     
-    /** TODO comment method role
-     * @param aChanger
+    /**
+     * Change la couleur de chacun des éléments de la matrice en paramètre.
+     * @param aChanger un tableau de tableau contenant les coordonnées des 
+     * éléments dont il faut changer la couleur.
      */
     public void changeCouleurArray(int[][] aChanger) {
         for (int[] elt : aChanger) {
@@ -246,9 +258,11 @@ public class Plateau {
         }
     }
     
-    /** TODO comment method role
-     * @return TODO
-     * 
+    /** 
+     * Méthode permettant à l'ordinateur de choisir un emplacement où poser 
+     * son jeton de manière aléatoire. Cela correspond au mode de jeu "facile".
+     * @return les coordonnées du jeton à placer si un jeton est plaçable.
+     * Si aucun jeton n'est plaçable, alors les coordonnées sont négatives.
      */
     public int[] ordinateurFacile() {
         int[][] possibilites = chercherPlacementsPossible();
@@ -261,9 +275,12 @@ public class Plateau {
         }
     }
     
-    /** TODO comment method role
-     * @return TODO
-     * 
+    /** 
+     * Méthode permettant à l'ordinateur de choisir un emplacement où poser 
+     * son jeton en choisissant toujours l'option qui retourne le plus de 
+     * jetons adverses. Cela correspond au mode de jeu "difficile".
+     * @return les coordonnées du jeton à placer si un jeton est plaçable.
+     * Si aucun jeton n'est plaçable, alors les coordonnées sont négatives.
      */
     public int[] ordinateurDifficile() {
         int[][] possibilites = chercherPlacementsPossible();
@@ -283,12 +300,18 @@ public class Plateau {
         
     }
 
-    /** @return valeur de matrice */
+    /** 
+     * Permet d'obtenir la matrice contenant tous les jetons.
+     * @return valeur de matrice
+     */
     public Jeton[][] getMatriceJeton() {
         return matrice;
     }
 
-    /** @param matrice nouvelle valeur de matrice */
+    /**
+     *  Permet de modifier la matrice contenant tous les jetons.
+     * @param matrice nouvelle valeur de la matrice. 
+     */
     public void setMatriceJeton(Jeton[][] matrice) {
         this.matrice = matrice;
     }

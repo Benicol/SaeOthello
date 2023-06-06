@@ -1,5 +1,5 @@
 /*
- * Sauvegarde.java                                      4 Jun 2023
+ * Sauvegarde.java                                      30 mai 2023
  * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
  */
 package principal.modele;
@@ -9,26 +9,41 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /** 
- * TODO comment class responsibility (SRP)
+ * Une sauvegarde permet de garder en mémoire l'état actuel d'une partie :
+ *     - le placement actuel des jetons
+ *     - qui est le premier joueur
+ *     - quels sont les noms et scores du ou des joueurs
+ *     - quel est le mode de jeu (1 ou 2 joueurs)
+ *     - quel est le mode de difficulté (peut importe le mode de jeu)
+ *     - si le dernier joueur a passé son tour
+ *     - quelle est la couleur active
+ *     - qui joue l'ordinateur (J1 ou J2)
  * @author groupe 32
  */
 public class Sauvegarde {
     
+	/* Le nom choisi par l'utilisateur pour la sauvegarde */
     private String nom;
     
+    /* Le premier joueur */
     private Joueur joueur1;
     
+    /* Le second joueur */
     private Joueur joueur2;
 
-    /** TODO comment intial state
-     * @param nom
+    /** 
+     * Constructeur d'une sauvegarde 
+     * @param nom le nom choisi par l'utilisateur pour désigner sa sauvegarde
      */
     public Sauvegarde(String nom) {
         super();
         this.nom = nom;
     }
 
-    /** TODO comment method role
+    /**
+     * Méthode permettant d'enregistrer une nouvelle sauvegarde.
+     * Si une sauvegarde est créée et qu'une autre existait déjà
+     *  avec le même nom, celle-ci est supprimée.
      */
     public void enregistrer() {
         joueur1 = Modele.getJoueur1();
@@ -61,9 +76,10 @@ public class Sauvegarde {
         }
     }
 
-    /** TODO comment method role
-     * @param sauvegardeImporter 
-     * 
+    /**
+     *  Permet de charger une partie, ce qui correspond à l'importation 
+     *  d'un objet Sauvegarde vers le Modèle.
+     * @param sauvegardeImporter le nom de la sauvegarde à charger
      */
     public void importer(String sauvegardeImporter) {
         String[] separerParties = sauvegardeImporter.split("[|]");

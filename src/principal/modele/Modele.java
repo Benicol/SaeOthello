@@ -46,7 +46,7 @@ public class Modele {
     /* Permet de stocker en mémoire l'état du plateau de jeu */
     private static Plateau plateauJeu = new Plateau();
     
-    /* Permet de connaître l'état des cercles matérialisant les jetons FIXME : je dis pas de la merde ?*/
+    /* Permet de connaître l'état des cercles matérialisant les jetons */
     private static Circle[][] cercles;
     
     /* Permet de connaître l'état des boutons sur chaque case du plateau */
@@ -97,7 +97,7 @@ public class Modele {
 
     /** 
      * Permet de définir quel a été le dernier menu ouvert en donnant l'indice
-     * dans le tableau de navigation des pages. FIXME: mieux dire ça
+     * dans le tableau de navigation des pages.
      * @param dernierMenuOuvert nouvelle valeur de dernierMenuOuvert 
      */
     public static void setDernierMenuOuvert(int dernierMenuOuvert) {
@@ -204,7 +204,7 @@ public class Modele {
     }
 
     /** 
-     * FIXME : ché pas quoi dire
+     * Permet de connaître la liste des cercles.
      * @return valeur de cercles 
      */
     public static Circle[][] getCercles() {
@@ -228,7 +228,7 @@ public class Modele {
     }
 
     /** 
-     * FIXME
+     * Permet de définir les cercles.
      * @param cercles nouvelle valeur de cercles 
      */
     public static void setCercles(Circle[][] cercles) {
@@ -323,7 +323,7 @@ public class Modele {
     
     /** 
      * Permet de changer la couleur de chaque jetons encadrés par deux jetons de
-     * même couleur. FIXME: mieux expliquer
+     * même couleur.
      * @param coords les coordonnées d'un jeton avec en indice 0 les coordonnées
      * en x et en indice 1 les coordonnées en y.
      * @return le nombre de jetons se faisant retourner de la sorte. 
@@ -380,12 +380,11 @@ public class Modele {
     }
     
     /**
-     * 
-     * 
-     * @param x
-     * @param y
-     * @param couleur 
-     * @param cercle 
+     * Méthode qui créé les cercles du côté modèle. 
+     * @param x les coordonnées en x du cercle
+     * @param y les coordonnées en y du cercle
+     * @param couleur la couleur du cercle
+     * @param cercle le type du cercle
      */
     public static void creerCercleModele(Integer x, Integer y, Paint couleur, Circle cercle) { //TODO
         Modele.getPlateauJeu().jetonExiste(x, y, couleur);
