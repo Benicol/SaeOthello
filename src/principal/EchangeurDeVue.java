@@ -1,5 +1,6 @@
 /*
-* Gère l'échange entre les vues affichées par la scène de l'application 05/23
+ * EchangeurDeVue.java                                     26/05/2023
+ * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft"
  */
 package principal;
 
@@ -13,30 +14,13 @@ import javafx.fxml.FXMLLoader;
 
 /**
  * Classe outil permettant de gérer le changement de la vue affichée par la
- * scene de l'application.
- *
- * Afin d'optimiser, un cache est mis en place : l'objectif est que le code fxml
- * soit chargé une seule fois, donc lors du 1er chargement de cette vue. Pour ce
- * faire, une HashMap (table de hachage) fait la correspondance entre le code de
- * la vue (une constante de type entier définie dans la classe EnsembleDesVues)
- * et l'élément racine de la vue (de type Parent qui est la classe Parente de
- * toutes les classes conteneurs comme HBox, VBox, BorderPane ...)
- * 
- * @author C. Servières
- * @version 1.0
- *
+ * scene de l'application. 
+ * @author groupe 32
  */
 public class EchangeurDeVue {
 
     /**
-     * HashMap ou table de hachage qui contient des paires formées de : - un code de
-     * vue sous la forme d'une constante de type entier définie dans la classe
-     * EnsembleDesVues Ce code est la clé de la paire - un conteneur correspondant à
-     * la vue définie dans le fichier fxml celui qui a pour code la valeur de la clé
-     * Cette table est renseignée au 1er chargement d'une vue. Au 2ème chargement,
-     * la vue recherchée n'est pas obtenue à partir du fichier fxml, mais à partir
-     * de l'élément de type Parent associée à la clé (la clé étant le code de la
-     * vue)
+     * Table de hachage
      */
     private static Map<Integer, Parent> cache;
     
@@ -53,7 +37,6 @@ public class EchangeurDeVue {
     /**
      * Affecte à la sceneCourante la scène créée dans la méthode start, donc celle
      * associée à la fenêtre principale
-     * 
      * @param nouvelleScene Scene à affecter
      */
     public static void setSceneCourante(Scene nouvelleScene) {
@@ -74,9 +57,7 @@ public class EchangeurDeVue {
      * le code est donné en argument La scène courante doit avoir été initialisée
      * 
      * @param codeVue code de la vue à placer sur la scène courante
-     * @param height 
-     * @param width 
-     * @param garderEnMemoire 
+     * @param garderEnMemoire TODO
      */
     public static void echangerAvec(int codeVue, boolean garderEnMemoire) {
         if (sceneCourante == null) {

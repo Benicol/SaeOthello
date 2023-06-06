@@ -1,5 +1,5 @@
 /*
- * ControleurPseudo.java                                      3 Jun 2023
+ * ControleurSauvegarde.java                                      30 mai 2023
  * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
  */
 package principal;
@@ -14,23 +14,23 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-/**
- * TODO comment class responsibility (SRP)
- * 
- * @author benji
- *
+/** 
+ * Contrôleur de Sauvegarde.fxml
+ * @author groupe 32
  */
 public class ControleurSauvegarde {
     
+	/* message qui s'affiche si l'utilisateur choisi un nom de sauvegarde invalide */
     @FXML
     private Label messageErreur;
 
+    /* zone de saisie pour le nom de la sauvegarde */
     @FXML
     private TextField entrer;
 
-    @FXML
-    private Text labelPrincipal;
-
+    /*
+     * Au survol d'un bouton, le style de celui-ci est modifié et devient plus foncé.
+     */
     @FXML
     void buttonEntered(MouseEvent event) {
         Button boutton = (Button) event.getSource();
@@ -38,6 +38,10 @@ public class ControleurSauvegarde {
         boutton.getStyleClass().add("buttonEntered");
     }
 
+    /*
+     * Quand, en survol, on sort d'un bouton, le style de celui-ci 
+     * est modifié pour revenir à son état initial.
+     */
     @FXML
     void buttonExited(MouseEvent event) {
         Button boutton = (Button) event.getSource();
@@ -45,13 +49,17 @@ public class ControleurSauvegarde {
         boutton.getStyleClass().add("buttonExited");
     }
 
+    /* 
+     * Crée une nouvelle sauvegarde si le nom choisi est correct 
+     * puis redirige vers le menu en jeu.
+     */
     @FXML
     void sauvegarderCliquer(ActionEvent event) {
         if (!entrer.getText().matches("^[a-zA-Z0-9 ]*$")) {
             messageErreur.setText("Veuillez uniquement utiliser des lettres et chiffres (pas d'espace)");
             messageErreur.setOpacity(1);
         } else if (entrer.getText().length() > 30){
-            messageErreur.setText("Votre Pseudonyme doit faire moins de 30 caractères");
+            messageErreur.setText("Le nom du doit faire 30 caractères maximum");
             messageErreur.setOpacity(1);
         } else {
             Sauvegarde nouvelleSauvegarde = new Sauvegarde(entrer.getText());
@@ -60,6 +68,10 @@ public class ControleurSauvegarde {
         }
     }
     
+    /*
+     * Permet de changer de vue pour la vue menu en jeu
+     * si le joueur clique sur "retour".
+     */
     @FXML
     void retourCliquer(ActionEvent event) {
         EchangeurDeVue.echangerAvec(5, false);
