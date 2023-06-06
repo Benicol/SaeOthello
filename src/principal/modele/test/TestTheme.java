@@ -20,10 +20,10 @@ class TestTheme {
     private Theme theme3;
     
     /**
-     * Initialisation de plusieurs object Jeton
+     * Initialisation de plusieurs object Theme
      */
     @BeforeEach 
-    void InitialiserJeton(){
+    void InitialiserTheme(){
     	theme1 = new Theme("#000000","#FFFFFF");
     	theme1.switchCouleurActive();
     	
