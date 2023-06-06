@@ -114,12 +114,12 @@ public class ControleurVueJeu {
             couleurJoueurActif.setFill(Paint.valueOf(Modele.getPalette().getCouleurActive()));
         }
         if (Modele.isOrdinateurIsWaiting()) {
-            System.out.println(Modele.getOrdinateurVeutJouer()[0] + ", " 
-                             + Modele.getOrdinateurVeutJouer()[1]);
             Modele.afficherContourBoutton(Modele.getOrdinateurVeutJouer()[0], 
                     Modele.getOrdinateurVeutJouer()[1], 
                     "#FF0000");
             passerTour.setText("suivant");
+            passerTour.setStyle("-fx-background-color : #8888FF;"
+                    + " -fx-background-radius : 50px;");
         }
         initialisation = false;
         Modele.setPartieCharge(false);
@@ -200,8 +200,14 @@ public class ControleurVueJeu {
         Button boutton = (Button) event.getSource();
         String beforeStyle = boutton.getStyle();
         int premierePointVirgule = beforeStyle.indexOf(";") + 1;
-        boutton.setStyle("-fx-background-color: #60A383;"
+        if (Modele.isOrdinateurIsWaiting() && boutton == passerTour) {
+            boutton.setStyle("-fx-background-color: #7777EE;"
                     + beforeStyle.substring(premierePointVirgule, beforeStyle.length()));
+        } else {
+            boutton.setStyle("-fx-background-color: #60A383;"
+                    + beforeStyle.substring(premierePointVirgule, beforeStyle.length()));
+        }
+        
     }
 
     /*
@@ -213,9 +219,15 @@ public class ControleurVueJeu {
         Button boutton = (Button) event.getSource();
         String beforeStyle = boutton.getStyle();
         int premierePointVirgule = beforeStyle.indexOf(";") + 1;
-        boutton.setStyle("-fx-background-color: #75BB99;"
-                + beforeStyle.substring(premierePointVirgule,
-                                            beforeStyle.length()));
+        if (Modele.isOrdinateurIsWaiting() && boutton == passerTour) {
+            boutton.setStyle("-fx-background-color: #8888FF;"
+                    + beforeStyle.substring(premierePointVirgule, beforeStyle.length()));
+        } else {
+            boutton.setStyle("-fx-background-color: #75BB99;"
+                    + beforeStyle.substring(premierePointVirgule,
+                                                beforeStyle.length()));
+        }
+        
     }
 
     /**
@@ -297,9 +309,8 @@ public class ControleurVueJeu {
                                               actionOrdinateur[1], 
                                               "#FF0000");
                 passerTour.setText("suivant");
-                //displayActionOrdinateur.setText("L'ordinateur a joué : [" + (actionOrdinateur[0] + 1) + ", " + (actionOrdinateur[1] + 1) + "]");
-                //retournerJetons(actionOrdinateur);
-                //creerCercle(actionOrdinateur[0], actionOrdinateur[1]);
+                passerTour.setStyle("-fx-background-color : #8888FF;"
+                        + " -fx-background-radius : 50px;");
             }
         }
     }
@@ -311,6 +322,8 @@ public class ControleurVueJeu {
             creerCercle(Modele.getOrdinateurVeutJouer()[0], 
                         Modele.getOrdinateurVeutJouer()[1]);
             Modele.setOrdinateurIsWaiting(false);
+            passerTour.setStyle("-fx-background-color : #75BB99;"
+                    + " -fx-background-radius : 50px;");
             passerTour.setText("Passer son tour");
         }
 

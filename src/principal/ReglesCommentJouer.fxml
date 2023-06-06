@@ -48,7 +48,7 @@
             <Insets bottom="5.0" />
          </VBox.margin>
       </Text>
-      <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. Accéder au menu (en haut à droite)" textAlignment="JUSTIFY" wrappingWidth="500.0">
+      <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. Accéder au menu (en haut à gauche)" textAlignment="JUSTIFY" wrappingWidth="500.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

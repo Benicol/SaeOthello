@@ -295,7 +295,7 @@ public class Modele {
      */
     public static void fin() {
         EchangeurDeVue.supprimerCache(1);
-        if (Modele.getJoueur1().getScore() > Modele.getJoueur2().getScore()) {
+        if (Modele.getJoueur1().getScore() > Modele.getJoueur2().getScore() ) {
             Modele.setPseudoVainqueur(Modele.getJoueur1().getPseudo());
             EchangeurDeVue.echangerAvec(4, false);
         } else if (Modele.getJoueur1().getScore() < Modele.getJoueur2().getScore()) {
@@ -311,7 +311,9 @@ public class Modele {
      * Si tel est le cas, cela déclenche une fin de partie.
      */
     public static void testFin() {
-        if (Modele.getJoueur1().getScore() + Modele.getJoueur2().getScore() == 64) {
+        if (Modele.getJoueur1().getScore() + Modele.getJoueur2().getScore() == 64
+            || Modele.getJoueur1().getScore() == 0
+            || Modele.getJoueur2().getScore() == 0) {
             Modele.fin();
         }
     }
@@ -387,9 +389,6 @@ public class Modele {
      * @param couleur la valeur en hexadécimal de la couleur à afficher
      */
     public static void afficherContourBoutton(int x, int y, String couleur) {
-        System.out.println(x + "," + y + "=>" + "-fx-border-color: " + couleur + " ;" + " -fx-border-radius: 50;"
-                + " -fx-border-style: segments(5, 5, 5, 5);" + " -fx-border-width: 2;"
-                + " -fx-background-color: #ff000000;");
         Modele.getButtons()[x][y].setStyle("-fx-border-color: " + couleur + " ;" + " -fx-border-radius: 50;"
                 + " -fx-border-style: segments(5, 5, 5, 5);" + " -fx-border-width: 2;"
                 + " -fx-background-color: #ff000000;");
