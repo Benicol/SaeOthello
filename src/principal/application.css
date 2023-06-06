@@ -1,1 +1,11 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.buttonEntered{
+	-fx-background-color: #008656;
+	-fx-text-fill: #FFFFFF;
+	-fx-background-radius:50px;
+}
+
+.buttonExited{
+	-fx-background-color: #009E6D;
+	-fx-text-fill: #FFFFFF;
+    -fx-background-radius:50px;
+}

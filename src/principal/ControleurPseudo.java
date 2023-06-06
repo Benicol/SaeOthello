@@ -47,19 +47,15 @@ public class ControleurPseudo {
     @FXML
     void buttonEntered(MouseEvent event) {
         Button boutton = (Button) event.getSource();
-        String beforeStyle = boutton.getStyle();
-        int premierePointVirgule = beforeStyle.indexOf(";") + 1;
-        boutton.setStyle(
-                "-fx-background-color: #008656;" + beforeStyle.substring(premierePointVirgule, beforeStyle.length()));
+        boutton.getStyleClass().remove("buttonExited");
+        boutton.getStyleClass().add("buttonEntered");
     }
 
     @FXML
     void buttonExited(MouseEvent event) {
         Button boutton = (Button) event.getSource();
-        String beforeStyle = boutton.getStyle();
-        int premierePointVirgule = beforeStyle.indexOf(";") + 1;
-        boutton.setStyle(
-                "-fx-background-color: #009E6D;" + beforeStyle.substring(premierePointVirgule, beforeStyle.length()));
+        boutton.getStyleClass().remove("buttonEntered");
+        boutton.getStyleClass().add("buttonExited");
     }
 
     @FXML

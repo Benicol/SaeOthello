@@ -74,7 +74,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#suivantPresse" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#suivantPresse" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" styleClass="buttonExited" stylesheets="@application.css" textAlignment="CENTER">
          <effect>
             <DropShadow />
          </effect>

@@ -164,23 +164,16 @@ public class ControleurVueJeu {
 
     @FXML
     void buttonEntered(MouseEvent event) {
-        if (!Modele.estTourOrdinateur()) {
-            Button boutton = (Button) event.getSource();
-            String beforeStyle = boutton.getStyle();
-            int premierePointVirgule = beforeStyle.indexOf(";") + 1;
-            boutton.setStyle("-fx-background-color: #60A383;"
-                    + beforeStyle.substring(premierePointVirgule, beforeStyle.length()));
-        }
+        Button boutton = (Button) event.getSource();
+        boutton.getStyleClass().remove("buttonExited");
+        boutton.getStyleClass().add("buttonEntered");
     }
 
     @FXML
     void buttonExited(MouseEvent event) {
         Button boutton = (Button) event.getSource();
-        String beforeStyle = boutton.getStyle();
-        int premierePointVirgule = beforeStyle.indexOf(";") + 1;
-        boutton.setStyle("-fx-background-color: #75BB99;"
-                + beforeStyle.substring(premierePointVirgule,
-                                            beforeStyle.length()));
+        boutton.getStyleClass().remove("buttonEntered");
+        boutton.getStyleClass().add("buttonExited");
     }
 
     /**
