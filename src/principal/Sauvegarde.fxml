@@ -55,7 +55,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="retourCliquer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#retourCliquer" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" style="-fx-background-color: #009E6D; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
+            <Button fx:id="retourCliquer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#retourCliquer" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="47.0" prefWidth="250.0" styleClass="buttonExited" stylesheets="@application.css" textAlignment="CENTER">
                <effect>
                   <DropShadow />
                </effect>
