@@ -1,5 +1,5 @@
 /*
- * ControleurEgalite.java                                      3 Jun 2023
+ * ControleurEgalite.java                                      30 mai 2023
  * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
  */
 package principal;
@@ -11,9 +11,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import principal.modele.Modele;
 
-/** TODO comment class responsibility (SRP)
- * @author benji
- *
+/**
+ * Contrôleur de Egalite.fxml
+ * @author groupe 32
  */
 public class ControleurEgalite {
     
