@@ -399,7 +399,7 @@ public class Modele {
     }
 
     /** 
-     * Défini l'action effectué par l'ordinateur, soit l'emplacement choisi par
+     * Définit l'action effectué par l'ordinateur, soit l'emplacement choisi par
      * celui-ci pour poser son jeton. Son choix dépendra du mode de difficulté
      * pré-établi.
      * @return actionOrdinateur, qui contient les coordonnées d'un jeton avec en

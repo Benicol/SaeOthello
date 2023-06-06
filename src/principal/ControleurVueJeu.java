@@ -1,5 +1,5 @@
 /*
- * ControleurVueJeu.java                                      26 2023
+ * ControleurVueJeu.java                                      26 mai 2023
  * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
  */
 package principal;
@@ -22,57 +22,60 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
-/**
- * TODO comment class responsibility (SRP)
- * 
- * @author Groupe 32
- *
+/** 
+ * Contrôleur de VueJeu.fxml
+ * @author groupe 32
  */
 public class ControleurVueJeu {
     
+	/* */
     private boolean initialisation = true;
 
+    /* */
     @FXML
     private Label displayActionOrdinateur;
     
+    /* Texte affichant le pseudo du Joueur 1 */
     @FXML
     private TextField nomJoueur1;
 
+    /* Texte affichant le score du Joueur 1 */
     @FXML
     private TextField scoreJoueur1;
 
+    /* Texte affichant le pseudo du Joueur 2 */
     @FXML
     private TextField nomJoueur2;
 
+    /* Texte affichant le score du Joueur 2 */
     @FXML
     private TextField scoreJoueur2;
 
+    /* Bouton permettant d'accéder au menu en jeu */
     @FXML
     private Button menu;
 
+    /* Grille permettant de représenter le plateau de jeu */
     @FXML
     private GridPane grille;
 
+    /* Bouton permettant de passer son tour */
     @FXML
     private Button passerTour;
 
+    /* 
+     * Cercle dans le bandeau permettant d'afficher la couleur 
+     * du joueur actif 
+     */
     @FXML
     private Circle couleurJoueurActif;
 
+    /*
+     * Au lancement de cette vue, permet d'adapter la vue en fonction 
+     * du type de partie.
+     */
     @FXML
     private void initialize() {
-//        int randomSwitch = (int) (Math.random() * 2);
-//        Joueur tmpJoueur = new Joueur(null);
-//        if (randomSwitch == 0) {
-//            tmpJoueur.setPseudo(Modele.getJoueur1().getPseudo());
-//            Modele.getJoueur1().setPseudo(Modele.getJoueur2().getPseudo());
-//            Modele.getJoueur2().setPseudo(tmpJoueur.getPseudo());;
-//            if (Modele.getPalette().getCouleurJ1() == Modele.getPalette().getCouleurActive()) {
-//                Modele.getPalette().setCouleurOrdinateur(Modele.getPalette().getCouleurJ2());
-//            } else {
-//                Modele.getPalette().setCouleurOrdinateur(Modele.getPalette().getCouleurJ1());
-//            }
-//        }
         if (!Modele.isPartieCharge()) {
             Modele.setPlateauJeu(new Plateau());
             Modele.getJoueur1().setScore(0);
@@ -112,6 +115,9 @@ public class ControleurVueJeu {
         Modele.setPartieCharge(false);
     }
 
+    /*
+     * Se lance quand on appuie sur l'une des cases de la grille (le plateau).
+     */
     @FXML
     void nodePressed(ActionEvent event) {
         Button btn = (Button) event.getSource();
@@ -121,14 +127,20 @@ public class ControleurVueJeu {
         creerCercle(coords[0], coords[1]);
     }
     
+    /* Permet de retourner les jetons. */
     void retournerJetons(int[] coords) {
         int nbChangement =  Modele.retournerJetons(coords);
         updateScore();
         if (Modele.estTourOrdinateur()) {
-            displayActionOrdinateur.setText(displayActionOrdinateur.getText() + " et à gagner " + nbChangement + " points.");
+            displayActionOrdinateur.setText(displayActionOrdinateur.getText() + " et a gagné " + nbChangement + " point(s).");
         }
     }
 
+    /*
+     * Permet de passer son tour si le joueur clique sur "passer son tour".
+     * Déclenche également l'action si, lors du tour de l'ordinateur, 
+     * celui-ci ne peut pas jouer.
+     */
     @FXML
     void passerSonTourPresse(ActionEvent event) {
         if (!Modele.estTourOrdinateur()) {
@@ -137,6 +149,9 @@ public class ControleurVueJeu {
         checkOrdinateur();
     }
     
+    /*
+     * Permet au joueur actif de finir son tour sans poser de nouveau jeton.
+     */
     void passerSonTour() {
         if (Modele.isJoueurPrecedentPasser()) { 
             Modele.fin();
@@ -146,6 +161,10 @@ public class ControleurVueJeu {
         Modele.setJoueurPrecedentPasser(true);
     }
 
+    /*
+     * Permet de changer de vue pour la menu du jeu
+     * si le joueur clique sur "menu".
+     */
     @FXML
     void menuPresse(ActionEvent event) {
         if (!Modele.estTourOrdinateur()) {
@@ -153,6 +172,7 @@ public class ControleurVueJeu {
         }
     }
     
+    /* Renvoit les coordonnées de tous les boutons */
     void registerBouttons() {
         List<Node> buttonsNodes = grille.getChildren().subList(0, 64);
         int[] coords = new int[2];
@@ -162,6 +182,9 @@ public class ControleurVueJeu {
         }
     }
 
+    /*
+     * Au survol d'un bouton, le style de celui-ci est modifié et devient plus foncé.
+     */
     @FXML
     void buttonEntered(MouseEvent event) {
         if (!Modele.estTourOrdinateur()) {
@@ -173,6 +196,10 @@ public class ControleurVueJeu {
         }
     }
 
+    /*
+     * Quand, en survol, on sort d'un bouton, le style de celui-ci 
+     * est modifié pour revenir à son état initial.
+     */
     @FXML
     void buttonExited(MouseEvent event) {
         Button boutton = (Button) event.getSource();
@@ -184,10 +211,9 @@ public class ControleurVueJeu {
     }
 
     /**
-     * TODO comment method role
-     * 
-     * @param x
-     * @param y
+     * Crée un nouveau cercle aux coordonnées indiquées.
+     * @param x les coordonnées en x du cercle à créer
+     * @param y les coordonnées en y du cercle à créer
      */
     void creerCercle(Integer x, Integer y) {
         Modele.setJoueurPrecedentPasser(false);
@@ -207,10 +233,11 @@ public class ControleurVueJeu {
     }
     
     /**
-     * TODO comment method role
-     * 
-     * @param x
-     * @param y
+     * Crée un nouveau cercle selon les coordonnées et la couleur 
+     * indiquées.
+     * @param x les coordonnées en x du cercle à créer
+     * @param y les coordonnées en y du cercle à créer
+     * @param Paint la couleur du cercle à créer
      */
     void creerCercle(Integer x, Integer y, Paint couleur) {
         Circle cercle = new Circle(0, 0, 18);
@@ -226,6 +253,7 @@ public class ControleurVueJeu {
         }
     }
 
+    /* Permet d'obtenir les coordonnées d'une case de la grille */
     private static int[] getNodeCoords(Node noeud) {
         Integer x = GridPane.getColumnIndex(noeud);
         x = x == null ? 0 : x;
@@ -235,29 +263,27 @@ public class ControleurVueJeu {
         return resultat;
     }
 
-    
-
-
+    /* Permet de changer la couleur du joueur actif */
     void changeCouleurJoueurActif() {
         Modele.getPalette().switchCouleurActive();
         couleurJoueurActif.setFill(Paint.valueOf(Modele.getPalette().getCouleurActive()));
     }
 
+    /* Permet de modifier le score des 2 joueurs */
     void updateScore() {
         scoreJoueur1.setText(Integer.toString(Modele.getJoueur1().getScore()));
         scoreJoueur2.setText(Integer.toString(Modele.getJoueur2().getScore()));
     }
 
-    
-
-    
+    /* Vérifie si c'est le tour de l'ordinateur et fait son action 
+     * (en indiquant où il place son nouveau jeton) */
     private void checkOrdinateur() {
         if (Modele.estTourOrdinateur()) {
             int[] actionOrdinateur = Modele.checkOrdinateur();
             if (actionOrdinateur[0] < 0) {
                 passerSonTour();
             } else {
-                displayActionOrdinateur.setText("L'ordinateur à jouer : [" + (actionOrdinateur[0] + 1) + ", " + (actionOrdinateur[1] + 1) + "]");
+                displayActionOrdinateur.setText("L'ordinateur a joué : [" + (actionOrdinateur[0] + 1) + ", " + (actionOrdinateur[1] + 1) + "]");
                 retournerJetons(actionOrdinateur);
                 creerCercle(actionOrdinateur[0], actionOrdinateur[1]);
             }

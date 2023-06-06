@@ -1,5 +1,5 @@
 /*
- * ControleurRegles.java                                      4 Jun 2023
+ * ControleurInterfaceMenuOptions.java                                      30 mai 2023
  * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
  */
 package principal;
@@ -11,15 +11,22 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import principal.modele.Modele;
 
-/** TODO comment class responsibility (SRP)
- * @author benji
- *
+/** 
+ * Contrôleur de InterfaceMenuOptions.fxml
+ * @author groupe 32
  */
 public class ControleurInterfaceMenuOptions {
     
+	/* Texte d'affichage du bouton "mode de difficulté */
     @FXML
     private Text textDifficulte;
     
+	/* 
+	 * Méthode permettant de modifier l'affichage du bouton "mode de 
+	 * difficulté en fonction de la difficulté sélectionnée
+	 * 	- "OFF" en mode facile
+	 * 	- "ON" en mode difficile
+	 */
     @FXML
     void switchDifficulte(ActionEvent event) {
         if (Modele.isMode1JoueurDifficile()) {
@@ -31,11 +38,18 @@ public class ControleurInterfaceMenuOptions {
         }
     }
 
+    /*
+     * Permet de changer de vue pour retourner au menu principal
+     * si le joueur clique sur "retour/menu principal".
+     */
     @FXML
     void menuPressed(ActionEvent event) {
         EchangeurDeVue.echangerAvec(0, false);
     }
     
+    /*
+     * Au survol d'un bouton, le style de celui-ci est modifié et devient plus foncé.
+     */
     @FXML
     void buttonEntered(MouseEvent event) {
         Button boutton = (Button) event.getSource();
@@ -46,6 +60,10 @@ public class ControleurInterfaceMenuOptions {
                                                          beforeStyle.length()));
     }
 
+    /*
+     * Quand, en survol, on sort d'un bouton, le style de celui-ci 
+     * est modifié pour revenir à son état initial.
+     */
     @FXML
     void buttonExited(MouseEvent event) {
         Button boutton = (Button) event.getSource();

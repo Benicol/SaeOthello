@@ -1,4 +1,7 @@
-/* Programme principal de l'application calcul de la réduction 05/23 */
+/* 
+ * Programme principal de l'application Othello            30/05/2023
+ * IUT Rodez, info1 2022-2023, pas de copyright ni "copyleft" 
+ */
 package principal;
 
 import java.io.IOException;
@@ -11,7 +14,6 @@ import javafx.scene.Scene;
 /**
  * Classe principale de l'application calcul de la réduction La fenêtre
  * principale est affichée via une vue décrite dans un fichier fxml
- * 
  * @author Groupe 32
  */
 public class Main extends Application {

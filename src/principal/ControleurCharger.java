@@ -37,7 +37,7 @@ public class ControleurCharger {
 	 * (le nom de la sauvegarde) et une valeur (la sauvegarde) */
     private Map<String, String> sauvegardes = new HashMap<String, String>();
     
-    /*  */
+    /* Le bouton permettant de lister toutes les sauvegardes */
     @FXML
     private ChoiceBox<String> choiceBox;
 
@@ -50,7 +50,7 @@ public class ControleurCharger {
 
     /* 
      * Méthode permettant de trouver toutes les sauvegardes disponibles
-     *  et de les afficher dans la liste déroulante prévue à cet effet.
+     * et de les afficher dans la liste déroulante prévue à cet effet.
      */
     private void updatePropositions() throws FileNotFoundException, IOException {
         choiceBox.getItems().clear();
