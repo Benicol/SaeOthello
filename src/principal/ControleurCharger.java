@@ -54,7 +54,7 @@ public class ControleurCharger {
     private void updatePropositions() throws FileNotFoundException, IOException {
         choiceBox.getItems().clear();
         sauvegardes.clear();
-        BufferedReader br = new BufferedReader(new FileReader("sauvegardes.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("sauvegardes.json"));
         String line;
         while ((line = br.readLine()) != null) {
             sauvegardes.put(line.split("[|]")[0], line);
@@ -105,7 +105,7 @@ public class ControleurCharger {
      */
     @FXML
     void supprimerPresse(ActionEvent event) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("sauvegardes.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("sauvegardes.json"));
         StringBuilder nouveauText = new StringBuilder();
         String line;
         while ((line = br.readLine()) != null) {
@@ -116,7 +116,7 @@ public class ControleurCharger {
         }
         br.close();
         BufferedWriter writer = new BufferedWriter(
-                                            new FileWriter("sauvegardes.txt"));
+                                            new FileWriter("sauvegardes.json"));
         writer.write(nouveauText.toString());
         writer.close();
         updatePropositions();

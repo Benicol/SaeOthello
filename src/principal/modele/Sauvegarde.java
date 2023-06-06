@@ -73,7 +73,7 @@ public class Sauvegarde {
         resultat = resultat.substring(0, resultat.length() -1 );
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(
-                                                      "sauvegardes.txt", true));
+                                                      "sauvegardes.json", true));
             writer.append(resultat + "\n");
             writer.close();
         } catch (IOException e) {
