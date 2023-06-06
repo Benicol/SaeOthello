@@ -56,10 +56,10 @@ public class ControleurSauvegarde {
     @FXML
     void sauvegarderCliquer(ActionEvent event) {
         if (!entrer.getText().matches("^[a-zA-Z0-9 ]*$")) {
-            messageErreur.setText("Veuillez uniquement utiliser des lettres et chiffres (pas d'espace)");
+            messageErreur.setText("Veuillez uniquement utiliser des lettres et chiffres");
             messageErreur.setOpacity(1);
         } else if (entrer.getText().length() > 30){
-            messageErreur.setText("Le nom du doit faire 30 caractères maximum");
+            messageErreur.setText("Le nom de la sauvegarde doit faire 30 caractères maximum");
             messageErreur.setOpacity(1);
         } else {
             Sauvegarde nouvelleSauvegarde = new Sauvegarde(entrer.getText());

@@ -49,7 +49,7 @@
       </VBox>
       <VBox alignment="CENTER" prefHeight="130.0" prefWidth="100.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefWidth="250.0" styleClass="buttonExited" stylesheets="@application.css" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="250.0" style="-fx-background-color: #777777; -fx-text-fill: #FFFFFF; -fx-background-radius: 50px;" textAlignment="CENTER">
                <effect>
                   <DropShadow />
                </effect>
@@ -57,26 +57,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
                <graphic>
-                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="CHANGER LE THEME">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Text>
-               </graphic>
-            </Button>
-         </children>
-      </VBox>
-      <VBox alignment="CENTER" prefHeight="130.0" prefWidth="100.0">
-         <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefWidth="250.0" styleClass="buttonExited" stylesheets="@application.css" textAlignment="CENTER">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-               <graphic>
-                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" text="STATISTIQUES">
+                  <Text fill="#aeaeae" stroke="BLACK" strokeType="OUTSIDE" text="CHANGER LE THEME (WIP)">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>

@@ -19,7 +19,6 @@ public class ControleurInterfaceMenuOptions {
     
 	/* Texte d'affichage du bouton "mode de difficulté */
     @FXML
-    
     private void initialize() {
         if (Modele.isMode1JoueurDifficile()) {
             textDifficulte.setText("MODE DIFFICILE : ON");
