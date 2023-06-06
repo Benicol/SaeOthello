@@ -26,10 +26,6 @@ public class ControleurSauvegarde {
     private Label messageErreur;
 
     @FXML
-    private void initialize() {
-    }
-
-    @FXML
     private TextField entrer;
 
     @FXML
