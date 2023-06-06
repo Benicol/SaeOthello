@@ -18,6 +18,16 @@ import principal.modele.Modele;
 public class ControleurInterfaceMenuOptions {
     
     @FXML
+    
+    private void initialize() {
+        if (Modele.isMode1JoueurDifficile()) {
+            textDifficulte.setText("MODE DIFFICILE : ON");
+        } else {
+            textDifficulte.setText("MODE DIFFICILE : OFF");
+        }
+    }
+    
+    @FXML
     private Text textDifficulte;
     
     @FXML

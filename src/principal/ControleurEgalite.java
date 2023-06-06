@@ -47,7 +47,8 @@ public class ControleurEgalite {
     
     @FXML
     void rejouerPresser(ActionEvent event) {
-        EchangeurDeVue.echangerAvec(1, false);
+        EchangeurDeVue.supprimerCache(1);
+        EchangeurDeVue.echangerAvec(1, true);
     }
     
     @FXML

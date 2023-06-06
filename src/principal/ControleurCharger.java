@@ -87,7 +87,9 @@ public class ControleurCharger {
     void chargerPresser(ActionEvent event) {
         new Sauvegarde("").importer(sauvegardes.get(
                        choiceBox.getSelectionModel().getSelectedItem().trim()));
+        EchangeurDeVue.supprimerCache(1);
         EchangeurDeVue.echangerAvec(1, true);
+        
     }
     
     @FXML
