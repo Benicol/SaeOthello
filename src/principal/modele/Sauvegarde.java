@@ -16,6 +16,8 @@ import java.io.IOException;
  *     - quel est le mode de jeu (1 ou 2 joueurs)
  *     - quel est le mode de difficulté (peut importe le mode de jeu)
  *     - si le dernier joueur a passé son tour
+ *     - si le ordinateur est entrein de jouer
+ *     - où l'ordinateur veut jouer
  *     - quelle est la couleur active
  *     - qui joue l'ordinateur (J1 ou J2)
  * @author groupe 32
@@ -43,7 +45,7 @@ public class Sauvegarde {
     /**
      * Méthode permettant d'enregistrer une nouvelle sauvegarde.
      * Si une sauvegarde est créée et qu'une autre existait déjà
-     *  avec le même nom, celle-ci est supprimée.
+     *  avec le même nom, celle-ci est remplacée.
      */
     public void enregistrer() {
         joueur1 = Modele.getJoueur1();
@@ -54,10 +56,13 @@ public class Sauvegarde {
         resultat += joueur2.getPseudo() + "|" + joueur2.getScore() + "|";
         resultat += (Modele.isMode1Joueur() ? 1 : 0) + "|";
         resultat += (Modele.isMode1JoueurDifficile() ? 1 : 0) + "|";
+        resultat += (Modele.isOrdinateurIsWaiting() ? 1 : 0) + "|";
         resultat += (Modele.isJoueurPrecedentPasser() ? 1 : 0) + "|";
         resultat += (Modele.getPalette().getCouleurActiveIsJ1() ? 1 : 0) + "|";
         resultat += (Modele.getPalette().getCouleurOrdinateurIsJ1() ? 1 : 0) 
                  + "|";
+        resultat += Modele.getOrdinateurVeutJouer()[0] + "," 
+                  + Modele.getOrdinateurVeutJouer()[1] + "|";
         Jeton[][] matriceJetons = Modele.getPlateauJeu().getMatriceJeton();
         for (Jeton[] arrayElt : matriceJetons) {
             for (Jeton elt : arrayElt) {
@@ -92,10 +97,16 @@ public class Sauvegarde {
         Modele.setJoueur2(joueur2);
         Modele.setMode1Joueur(separerParties[5].equals("1"));
         Modele.setMode1JoueurDifficile(separerParties[6].equals("1"));
-        Modele.setJoueurPrecedentPasser(separerParties[7].equals("1"));
-        Modele.getPalette().setCouleurActiveIsJ1(separerParties[8].equals("1"));
-        Modele.getPalette().setCouleurOrdinateurIsJ1(separerParties[9].equals("1"));
-        String[] tableauDePairs = separerParties[10].split("/");
+        Modele.setOrdinateurIsWaiting(separerParties[7].equals("1"));
+        Modele.setJoueurPrecedentPasser(separerParties[8].equals("1"));
+        Modele.getPalette().setCouleurActiveIsJ1(separerParties[9].equals("1"));
+        Modele.getPalette().setCouleurOrdinateurIsJ1(separerParties[10].equals("1"));
+        String[] coordsOrdinateurJoueString = separerParties[11].split(",");
+        int[] coordsOrdinateurJoue = {
+                Integer.parseInt(coordsOrdinateurJoueString[0]), 
+                Integer.parseInt(coordsOrdinateurJoueString[1])};
+        Modele.setOrdinateurVeutJouer(coordsOrdinateurJoue);
+        String[] tableauDePairs = separerParties[12].split("/");
         String[][] matriceAFormater = new String[tableauDePairs.length][2];
         for (int i = 0; i < matriceAFormater.length; i++) {
             String[] tmp = tableauDePairs[i].split(",");

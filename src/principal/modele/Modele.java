@@ -17,6 +17,13 @@ import javafx.scene.paint.Paint;
 public class Modele {
     
     /* DECLARATION DES VARIABLES */
+    
+    /* Permet de stocker en mémoire si l'ordinateur attend le joueur pour jouer */
+    private static boolean ordinateurIsWaiting = false;
+
+    /* Permer de stocker ce que l'odinateur veut jouer */
+    private static int[] ordinateurVeutJouer = {0, 0};
+    
     /* Permet de stocker en mémoire le dernier menu ouvert par le joueur */
     private static int dernierMenuOuvert = 0;
     
@@ -252,6 +259,26 @@ public class Modele {
         Modele.buttons = buttons;
     } 
     
+    /** @return valeur de ordinateurIsWaiting */
+    public static boolean isOrdinateurIsWaiting() {
+        return ordinateurIsWaiting;
+    }
+
+    /** @param ordinateurIsWaiting nouvelle valeur de ordinateurIsWaiting */
+    public static void setOrdinateurIsWaiting(boolean ordinateurIsWaiting) {
+        Modele.ordinateurIsWaiting = ordinateurIsWaiting;
+    }
+
+    /** @return valeur de ordinateurVeutJouer */
+    public static int[] getOrdinateurVeutJouer() {
+        return ordinateurVeutJouer;
+    }
+
+    /** @param ordinateurVeutJouer nouvelle valeur de ordinateurVeutJouer */
+    public static void setOrdinateurVeutJouer(int[] ordinateurVeutJouer) {
+        Modele.ordinateurVeutJouer = ordinateurVeutJouer;
+    }
+    
     /** 
      * Permet de savoir si c'est au joueur humain de jouer ou à l'ordinateur.
      * @return un booléen à true s'il s'agit bien du tour de l'ordinateur, false
@@ -296,7 +323,6 @@ public class Modele {
      * @param y les coordonnées en y du cercle à changer
      */
     public static void changeCouleur(int x, int y) {
-        System.out.println(x + "|" + y);
         if (Modele.getCercles()[x][y].getFill().equals(Paint.valueOf(Modele.getPalette().getCouleurJ1()))) {
             changeCouleurJ2(x, y);
 
@@ -361,6 +387,9 @@ public class Modele {
      * @param couleur la valeur en hexadécimal de la couleur à afficher
      */
     public static void afficherContourBoutton(int x, int y, String couleur) {
+        System.out.println(x + "," + y + "=>" + "-fx-border-color: " + couleur + " ;" + " -fx-border-radius: 50;"
+                + " -fx-border-style: segments(5, 5, 5, 5);" + " -fx-border-width: 2;"
+                + " -fx-background-color: #ff000000;");
         Modele.getButtons()[x][y].setStyle("-fx-border-color: " + couleur + " ;" + " -fx-border-radius: 50;"
                 + " -fx-border-style: segments(5, 5, 5, 5);" + " -fx-border-width: 2;"
                 + " -fx-background-color: #ff000000;");

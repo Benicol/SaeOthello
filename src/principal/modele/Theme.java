@@ -105,6 +105,7 @@ public class Theme {
      */
     public void setCouleurOrdinateurIsJ1(boolean couleurOrdinateurIsJ1) {
         this.couleurOrdinateurIsJ1 = couleurOrdinateurIsJ1;
+        
     }
 
     /** 

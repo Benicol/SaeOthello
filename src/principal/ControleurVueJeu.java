@@ -76,15 +76,17 @@ public class ControleurVueJeu {
      */
     @FXML
     private void initialize() {
+        Modele.setCercles(new Circle[8][8]);
+        Modele.setButtons(new Button[8][8]);
+        registerBouttons();
+        
         if (!Modele.isPartieCharge()) {
             Modele.setPlateauJeu(new Plateau());
             Modele.getJoueur1().setScore(0);
             Modele.getJoueur2().setScore(0);
             Modele.getPalette().resetCouleurActive();
         }
-        Modele.setCercles(new Circle[8][8]);
-        Modele.setButtons(new Button[8][8]);
-        registerBouttons();
+        
         displayActionOrdinateur.setText("");
         nomJoueur1.setStyle("-fx-text-fill: " + Modele.getPalette().getCouleurJ1() + "; " + "-fx-background-color: #75BB99;");
         nomJoueur2.setStyle("-fx-text-fill: " + Modele.getPalette().getCouleurJ2() + "; " + "-fx-background-color: #75BB99;");
@@ -111,6 +113,14 @@ public class ControleurVueJeu {
             }
             couleurJoueurActif.setFill(Paint.valueOf(Modele.getPalette().getCouleurActive()));
         }
+        if (Modele.isOrdinateurIsWaiting()) {
+            System.out.println(Modele.getOrdinateurVeutJouer()[0] + ", " 
+                             + Modele.getOrdinateurVeutJouer()[1]);
+            Modele.afficherContourBoutton(Modele.getOrdinateurVeutJouer()[0], 
+                    Modele.getOrdinateurVeutJouer()[1], 
+                    "#FF0000");
+            passerTour.setText("suivant");
+        }
         initialisation = false;
         Modele.setPartieCharge(false);
     }
@@ -120,20 +130,19 @@ public class ControleurVueJeu {
      */
     @FXML
     void nodePressed(ActionEvent event) {
-        Button btn = (Button) event.getSource();
-        btn.setDisable(true);
-        int[] coords = getNodeCoords((Node) event.getSource());
-        retournerJetons(coords);
-        creerCercle(coords[0], coords[1]);
+        if (!Modele.estTourOrdinateur()) {
+            Button btn = (Button) event.getSource();
+            btn.setDisable(true);
+            int[] coords = getNodeCoords((Node) event.getSource());
+            retournerJetons(coords);
+            creerCercle(coords[0], coords[1]);
+        }
     }
     
     /* Permet de retourner les jetons. */
     void retournerJetons(int[] coords) {
         int nbChangement =  Modele.retournerJetons(coords);
         updateScore();
-        if (Modele.estTourOrdinateur()) {
-            displayActionOrdinateur.setText(displayActionOrdinateur.getText() + " et a gagné " + nbChangement + " point(s).");
-        }
     }
 
     /*
@@ -143,7 +152,9 @@ public class ControleurVueJeu {
      */
     @FXML
     void passerSonTourPresse(ActionEvent event) {
-        if (!Modele.estTourOrdinateur()) {
+        if (Modele.estTourOrdinateur()) {
+            ordinateurJoue();
+        } else {
             passerSonTour();
         }
         checkOrdinateur();
@@ -167,14 +178,13 @@ public class ControleurVueJeu {
      */
     @FXML
     void menuPresse(ActionEvent event) {
-        if (!Modele.estTourOrdinateur()) {
-            EchangeurDeVue.echangerAvec(5, false);
-        }
+        EchangeurDeVue.echangerAvec(5, false);
     }
     
     /* Renvoit les coordonnées de tous les boutons */
     void registerBouttons() {
         List<Node> buttonsNodes = grille.getChildren().subList(0, 64);
+        
         int[] coords = new int[2];
         for (int i = 0; i < buttonsNodes.size(); i++) {
             coords = getNodeCoords(buttonsNodes.get(i));
@@ -187,13 +197,11 @@ public class ControleurVueJeu {
      */
     @FXML
     void buttonEntered(MouseEvent event) {
-        if (!Modele.estTourOrdinateur()) {
-            Button boutton = (Button) event.getSource();
-            String beforeStyle = boutton.getStyle();
-            int premierePointVirgule = beforeStyle.indexOf(";") + 1;
-            boutton.setStyle("-fx-background-color: #60A383;"
+        Button boutton = (Button) event.getSource();
+        String beforeStyle = boutton.getStyle();
+        int premierePointVirgule = beforeStyle.indexOf(";") + 1;
+        boutton.setStyle("-fx-background-color: #60A383;"
                     + beforeStyle.substring(premierePointVirgule, beforeStyle.length()));
-        }
     }
 
     /*
@@ -283,11 +291,27 @@ public class ControleurVueJeu {
             if (actionOrdinateur[0] < 0) {
                 passerSonTour();
             } else {
-                displayActionOrdinateur.setText("L'ordinateur a joué : [" + (actionOrdinateur[0] + 1) + ", " + (actionOrdinateur[1] + 1) + "]");
-                retournerJetons(actionOrdinateur);
-                creerCercle(actionOrdinateur[0], actionOrdinateur[1]);
+                Modele.setOrdinateurVeutJouer(actionOrdinateur);
+                Modele.setOrdinateurIsWaiting(true);
+                Modele.afficherContourBoutton(actionOrdinateur[0], 
+                                              actionOrdinateur[1], 
+                                              "#FF0000");
+                passerTour.setText("suivant");
+                //displayActionOrdinateur.setText("L'ordinateur a joué : [" + (actionOrdinateur[0] + 1) + ", " + (actionOrdinateur[1] + 1) + "]");
+                //retournerJetons(actionOrdinateur);
+                //creerCercle(actionOrdinateur[0], actionOrdinateur[1]);
             }
         }
     }
+    
+    /* Vérifie si c'est le tour de l'ordinateur et fait son action 
+     * (en indiquant où il place son nouveau jeton) */
+    private void ordinateurJoue() {
+            retournerJetons(Modele.getOrdinateurVeutJouer());
+            creerCercle(Modele.getOrdinateurVeutJouer()[0], 
+                        Modele.getOrdinateurVeutJouer()[1]);
+            Modele.setOrdinateurIsWaiting(false);
+            passerTour.setText("Passer son tour");
+        }
 
 }
