@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import principal.modele.Jeton;
-import principal.modele.Plateau;
 import principal.modele.Theme;
 
 class TestTheme {

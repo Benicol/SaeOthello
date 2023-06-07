@@ -12,7 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 
 /** 
  * Contrôleur de Sauvegarde.fxml
@@ -55,7 +54,11 @@ public class ControleurSauvegarde {
      */
     @FXML
     void sauvegarderCliquer(ActionEvent event) {
-        if (!entrer.getText().matches("^[a-zA-Z0-9 ]*$")) {
+        System.out.println(entrer.getText().length());
+        if (entrer.getText().length() == 0) {
+            messageErreur.setText("Veuillez entrer le nom de la sauvegarde");
+            messageErreur.setOpacity(1);
+        } else if (!entrer.getText().matches("^[a-zA-Z0-9 ]*$")) {
             messageErreur.setText("Veuillez uniquement utiliser des lettres et chiffres");
             messageErreur.setOpacity(1);
         } else if (entrer.getText().length() > 30){

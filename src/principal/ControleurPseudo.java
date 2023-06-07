@@ -95,7 +95,7 @@ public class ControleurPseudo {
             
             if (!Modele.isMode1Joueur()) {
                 if (!phaseDeux) {
-                    if (entrer.getText().length() == 0) {
+                    if (entrer.getText().trim().length() == 0) {
                         pseudo1 = entrer.getPromptText();
                     } else {
                         pseudo1 = entrer.getText();
@@ -105,14 +105,14 @@ public class ControleurPseudo {
                     labelPseudo.setText("Joueur 2");
                     labelPseudo.requestFocus();
                 } else {
-                    if (entrer.getText().length() == 0) {
+                    if (entrer.getText().trim().length() == 0) {
                         pseudo2 = entrer.getPromptText();
                     } else {
                         pseudo2 = entrer.getText();
                     }
                 }
             } else {
-                if (entrer.getText().length() == 0) {
+                if (entrer.getText().trim().length() == 0) {
                     pseudo1 = entrer.getPromptText();
                 } else {
                     pseudo1 = entrer.getText();

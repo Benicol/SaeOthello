@@ -43,13 +43,14 @@ public class EchangeurDeVue {
         sceneCourante = nouvelleScene;
     }
     
-    /**
-     * Affecte à la sceneCourante la scène créée dans la méthode start, donc celle
-     * associée à la fenêtre principale
-     * @param stage 
-     */
-    public static void setStage(Stage stage) {
-        primaryStage = stage;
+    /** @return valeur de primaryStage */
+    public static Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    /** @param primaryStage nouvelle valeur de primaryStage */
+    public static void setPrimaryStage(Stage primaryStage) {
+        EchangeurDeVue.primaryStage = primaryStage;
     }
     
     /**
@@ -107,4 +108,6 @@ public class EchangeurDeVue {
             cache.remove(codeVue);
         }
     }
+
+    
 }

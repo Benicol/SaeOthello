@@ -85,6 +85,8 @@ public class ControleurVueJeu {
             Modele.getJoueur1().setScore(0);
             Modele.getJoueur2().setScore(0);
             Modele.getPalette().resetCouleurActive();
+            Modele.setOrdinateurIsWaiting(false);
+            
         }
         
         displayActionOrdinateur.setText("");
@@ -141,7 +143,7 @@ public class ControleurVueJeu {
     
     /* Permet de retourner les jetons. */
     void retournerJetons(int[] coords) {
-        int nbChangement =  Modele.retournerJetons(coords);
+        Modele.retournerJetons(coords);
         updateScore();
     }
 

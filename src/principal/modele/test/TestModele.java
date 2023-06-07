@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javafx.scene.shape.Circle;
 import principal.modele.Joueur;
 import principal.modele.Modele;
 import principal.modele.Plateau;

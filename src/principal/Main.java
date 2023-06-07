@@ -38,7 +38,7 @@ public class Main extends Application {
             primaryStage.setWidth(600);
             EchangeurDeVue.setSceneCourante(scene);
             primaryStage.setScene(scene);
-            EchangeurDeVue.setStage(primaryStage);
+            EchangeurDeVue.setPrimaryStage(primaryStage);
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
