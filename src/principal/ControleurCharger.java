@@ -40,6 +40,10 @@ public class ControleurCharger {
     /* Au lancement de cette vue, toutes les parties qu'il est possible de charger */
     @FXML
     private void initialize() throws IOException {
+        BufferedWriter writer = new BufferedWriter(
+                new FileWriter("sauvegardes.json", true));
+        writer.append("");
+        writer.close();
         updatePropositions(); 
     }
 
